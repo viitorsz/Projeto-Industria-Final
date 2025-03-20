@@ -18,17 +18,9 @@
     <tabs>
         <Tab text="Automação estoque">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="628.0" prefWidth="956.0">
                <children>
-                  <TableView fx:id="tablesAutomacaoEstoque" layoutX="25.0" layoutY="11.0" prefHeight="579.0" prefWidth="726.0">
-                    <columns>
-                      <TableColumn fx:id="colMaterial" prefWidth="113.0" text="Material" />
-                      <TableColumn fx:id="colDescricaoEst" prefWidth="290.0" text="Descrição" />
-                        <TableColumn fx:id="colQuantidade" prefWidth="91.0" text="Quantidade" />
-                        <TableColumn fx:id="colEstado" prefWidth="99.0" text="Estado" />
-                    </columns>
-                  </TableView>
-                  <Button layoutX="774.0" layoutY="467.0" mnemonicParsing="false" onAction="#criarEstoque" prefHeight="36.0" prefWidth="85.0" text="Criar">
+                  <Button layoutX="116.0" layoutY="394.0" mnemonicParsing="false" onAction="#criarEstoque" prefHeight="36.0" prefWidth="85.0" text="Criar">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -36,46 +28,30 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Button layoutX="991.0" layoutY="468.0" mnemonicParsing="false" onAction="#editarEstoque" prefHeight="37.0" prefWidth="85.0" text="Editar">
-                     <graphic>
-                        <ImageView fitHeight="22.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@iconEditar.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
-                  <Button layoutX="1192.0" layoutY="469.0" mnemonicParsing="false" onAction="#deletarEstoque" prefHeight="36.0" prefWidth="85.0" text="Deletar">
-                     <graphic>
-                        <ImageView fitHeight="21.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@iconDeletar.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
-                  <Label layoutX="785.0" layoutY="57.0" prefHeight="27.0" prefWidth="102.0" text="Material">
+                  <Label layoutX="14.0" layoutY="31.0" prefHeight="27.0" prefWidth="102.0" text="Material">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtMaterial" layoutX="785.0" layoutY="84.0" prefHeight="34.0" prefWidth="148.0" promptText="Material" />
-                  <TextField fx:id="txtQuantidade" layoutX="782.0" layoutY="198.0" prefHeight="35.0" prefWidth="161.0" promptText="Quantidade">
+                  <TextField fx:id="txtMaterial" layoutX="14.0" layoutY="58.0" prefHeight="34.0" prefWidth="148.0" promptText="Material" />
+                  <TextField fx:id="txtQuantidade" layoutX="14.0" layoutY="139.0" prefHeight="35.0" prefWidth="161.0" promptText="Quantidade">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="785.0" layoutY="272.0" text="Descrição">
+                  <Label layoutX="14.0" layoutY="197.0" text="Descrição">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="txtDescricao" layoutX="784.0" layoutY="300.0" prefHeight="38.0" prefWidth="150.0" promptText="Descrição" />
-                  <Label layoutX="784.0" layoutY="164.0" text="Quantidade">
+                  <TextArea fx:id="txtDescricao" layoutX="13.0" layoutY="222.0" prefHeight="38.0" prefWidth="150.0" promptText="Descrição" />
+                  <Label layoutX="14.0" layoutY="111.0" text="Quantidade">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cmbEstado" layoutX="784.0" layoutY="396.0" prefHeight="27.0" prefWidth="150.0" />
-                  <Label layoutX="782.0" layoutY="362.0" text="Estado">
+                  <ComboBox fx:id="cmbEstado" layoutX="13.0" layoutY="313.0" prefHeight="27.0" prefWidth="150.0" />
+                  <Label layoutX="14.0" layoutY="287.0" text="Estado">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -85,7 +61,39 @@
     </Tab>
       <Tab text="Listar Estoque">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="tablesAutomacaoEstoque" layoutX="14.0" layoutY="25.0" prefHeight="579.0" prefWidth="726.0">
+                     <columns>
+                        <TableColumn fx:id="colMaterial" prefWidth="175.0" text="Material" />
+                        <TableColumn fx:id="colDescricaoEst" prefWidth="228.0" text="Descrição" />
+                        <TableColumn fx:id="colQuantidade" prefWidth="173.0" text="Quantidade" />
+                        <TableColumn fx:id="colEstado" prefWidth="149.0" text="Estado" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="1072.0" layoutY="314.0" mnemonicParsing="false" onAction="#filtrarEstoque" prefHeight="36.0" prefWidth="85.0" text="Filtrar">
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Filtrar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER_RIGHT" layoutX="833.0" layoutY="314.0" mnemonicParsing="false" onAction="#limparFiltroEstoque" prefHeight="36.0" prefWidth="106.0" text="Limpar Filtro" />
+                  <TextField fx:id="txtMaterial1" layoutX="785.0" layoutY="83.0" prefHeight="34.0" prefWidth="148.0" promptText="Material" />
+                  <TextField fx:id="txtQuantidade1" layoutX="904.0" layoutY="155.0" prefHeight="35.0" prefWidth="161.0" promptText="Quantidade">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <TextArea fx:id="txtDescricao1" layoutX="1057.0" layoutY="83.0" prefHeight="38.0" prefWidth="150.0" promptText="Descrição" />
+                  <ImageView fitHeight="21.0" fitWidth="31.0" layoutX="838.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@iconDeletar.png" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
         </content>
       </Tab>
       <Tab text="Atualizar Estoque">
