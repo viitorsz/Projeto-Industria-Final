@@ -241,6 +241,9 @@ private void limparCadastro() {
         txtResponsavel.clear();
         txtSetor.clear();
         txtLocalizacao.clear();
+        cmbCategoria.setValue(null);
+        cmbPrioridade.setValue(null);
+        cmbSituacao.setValue(null);
         txtOperacao.clear();
         tablesAutomacaoRH.setItems(listaAutomacaoRH);
     }
