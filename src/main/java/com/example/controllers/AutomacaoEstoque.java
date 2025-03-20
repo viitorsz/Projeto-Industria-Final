@@ -2,7 +2,7 @@ package com.example.controllers;
 
 import com.example.database.Database;
 import com.example.models.AutomacaoEst;
-import com.example.models.AutomacaoRH;
+//import com.example.models.AutomacaoRH;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -27,9 +27,10 @@ public class AutomacaoEstoque {
     @FXML private ComboBox<String> cmbEstado;
 
 
-    @FXML private TextField filtrarMaterial;
-    @FXML private TextField filtrarQuantidade;
-    @FXML private TextField filtrarEstado;
+    @FXML private TextField filtroMaterialEst;
+    @FXML private TextField filtroQuantidadeEst;
+    @FXML private TextField filtroEstadoEst;
+    @FXML private Button btnLimparEstoque;
 
     ObservableList<AutomacaoEst> listaAutomacaoEst = FXCollections.observableArrayList();
     
@@ -118,7 +119,7 @@ public void initialize() {
 }
 
 private void carregarEstoque() {
-    
+    ObservableList<AutomacaoEst> listaAutomacaoEst = FXCollections.observableArrayList();
 
     try (Connection conn = Database.getConnection();
          Statement stmt = conn.createStatement();
@@ -142,23 +143,23 @@ private void carregarEstoque() {
 }
 
 @FXML
-    private void filtrarEstoque() {
-                FilteredList<AutomacaoEst> dadosFiltrados = new FilteredList<>(listaAutomacaoEst, p -> true);
+    private void filtrarAutomacaoEst() {
+        FilteredList<AutomacaoEst> dadosFiltrados = new FilteredList<>(listaAutomacaoEst, p -> true);
 
         dadosFiltrados.setPredicate(produto -> {
-            if (!filtrarMaterial.getText().isEmpty() && !produto.getMaterial().toLowerCase().contains(filtrarMaterial.getText().toLowerCase())) {
+            if (!filtroMaterialEst.getText().isEmpty() && !produto.getMaterial().toLowerCase().contains(filtroMaterialEst.getText().toLowerCase())) {
                 return false;
             }
-            if (!filtrarQuantidade.getText().isEmpty() && !String.valueOf(produto.getQuantidade()).toLowerCase().contains(filtrarQuantidade.getText().toLowerCase())) {
+            if (!filtroQuantidadeEst.getText().isEmpty() && !String.valueOf(produto.getQuantidade()).toLowerCase().contains(filtroQuantidadeEst.getText().toLowerCase())) {
                 return false;
             }
-            if (!filtrarEstado.getText().isEmpty() && !String.valueOf(produto.getEstado()).toLowerCase().contains(filtrarEstado.getText().toLowerCase())) {
+            if (!filtroEstadoEst.getText().isEmpty() && !String.valueOf(produto.getEstado()).toLowerCase().contains(filtroEstadoEst.getText().toLowerCase())) {
                 return false;
             }
-                        return false;           
+            return false;           
         });
 
-        tablesAutomacaoEstoque.setItems(dadosFiltrados);
+       tablesAutomacaoEstoque.setItems(dadosFiltrados);
     }
     
  private void limparEstoque(){
@@ -167,6 +168,14 @@ private void carregarEstoque() {
     txtDescricao.clear();
     cmbEstado.setValue(null);
  }
+
+ @FXML
+    private void limparFiltroEstoque() {
+        filtroMaterialEst.clear();
+        filtroQuantidadeEst.clear();
+        filtroEstadoEst.clear();    
+        tablesAutomacaoEstoque.setItems(listaAutomacaoEst); 
+    }
     
     
     

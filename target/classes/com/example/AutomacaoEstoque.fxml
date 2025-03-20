@@ -16,7 +16,7 @@
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="1352.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.AutomacaoEstoque">
     <tabs>
-        <Tab text="Automação estoque">
+        <Tab text="Estoque">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="628.0" prefWidth="956.0">
                <children>
@@ -71,7 +71,23 @@
                         <TableColumn fx:id="colEstado" prefWidth="149.0" text="Estado" />
                      </columns>
                   </TableView>
-                  <Button layoutX="1072.0" layoutY="314.0" mnemonicParsing="false" onAction="#filtrarEstoque" prefHeight="36.0" prefWidth="85.0" text="Filtrar">
+                  <TextField fx:id="filtroMaterialEst" layoutX="785.0" layoutY="83.0" prefHeight="34.0" prefWidth="148.0" promptText="Filtrar por Material" />
+                  <TextField fx:id="filtroQuantidadeEst" layoutX="914.0" layoutY="155.0" prefHeight="35.0" prefWidth="161.0" promptText="Filtrar por Quantidade">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="filtroEstadoEst" layoutX="1065.0" layoutY="84.0" prefHeight="33.0" prefWidth="149.0" promptText="Filtrar por Estado" />
+                  <Button layoutX="1063.0" layoutY="324.0" mnemonicParsing="false" onAction="#limparFiltroEstoque" text="Limpar Filtro">
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconRemover.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="888.0" layoutY="324.0" mnemonicParsing="false" onAction="#filtrarAutomacaoEst" text="Filtrar">
                      <graphic>
                         <ImageView fitHeight="38.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -80,19 +96,6 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button alignment="CENTER_RIGHT" layoutX="833.0" layoutY="314.0" mnemonicParsing="false" onAction="#limparFiltroEstoque" prefHeight="36.0" prefWidth="106.0" text="Limpar Filtro" />
-                  <TextField fx:id="filtrarMaterial" layoutX="785.0" layoutY="83.0" prefHeight="34.0" prefWidth="148.0" promptText="Filtrar por Material" />
-                  <TextField fx:id="filtrarQuantidade" layoutX="904.0" layoutY="155.0" prefHeight="35.0" prefWidth="161.0" promptText="Filtrar por Quantidade">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </TextField>
-                  <ImageView fitHeight="21.0" fitWidth="31.0" layoutX="838.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@iconRemover.png" />
-                     </image>
-                  </ImageView>
-                  <TextField fx:id="filtrarEstado" layoutX="1065.0" layoutY="84.0" prefHeight="33.0" prefWidth="149.0" promptText="Filtrar por Estado" />
                </children></AnchorPane>
         </content>
       </Tab>
