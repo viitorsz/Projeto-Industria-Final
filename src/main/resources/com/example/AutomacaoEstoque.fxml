@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="1352.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.AutomacaoEstoque">
+    <tabs>
+        <Tab text="Automação estoque">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="tablesAutomacaoEstoque" layoutX="25.0" layoutY="11.0" prefHeight="579.0" prefWidth="726.0">
+                    <columns>
+                      <TableColumn fx:id="colMaterial" prefWidth="113.0" text="Material" />
+                      <TableColumn fx:id="colDescricaoEst" prefWidth="290.0" text="Descrição" />
+                        <TableColumn fx:id="colQuantidade" prefWidth="91.0" text="Quantidade" />
+                        <TableColumn fx:id="colEstado" prefWidth="99.0" text="Estado" />
+                    </columns>
+                  </TableView>
+                  <Button layoutX="774.0" layoutY="467.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="85.0" text="Criar">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconCriar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="991.0" layoutY="468.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="85.0" text="Editar">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconEditar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="btnDelete" layoutX="1199.0" layoutY="468.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="85.0" text="Deletar">
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconDeletar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Label layoutX="785.0" layoutY="57.0" prefHeight="27.0" prefWidth="102.0" text="Material">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtMaterial" layoutX="785.0" layoutY="84.0" prefHeight="34.0" prefWidth="148.0" promptText="Material">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="txtQuantidade" layoutX="782.0" layoutY="198.0" prefHeight="35.0" prefWidth="161.0" promptText="Quantidade">
+                     <font>
+                        <Font name="System Italic" size="13.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="785.0" layoutY="272.0" text="Descrição">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextArea layoutX="784.0" layoutY="300.0" prefHeight="38.0" prefWidth="150.0" promptText="Descrição" />
+                  <Label layoutX="784.0" layoutY="164.0" text="Quantidade">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cmbEstado" layoutX="784.0" layoutY="396.0" prefHeight="27.0" prefWidth="150.0" />
+                  <Label layoutX="782.0" layoutY="362.0" text="Estado">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    </tabs>
+</TabPane>
