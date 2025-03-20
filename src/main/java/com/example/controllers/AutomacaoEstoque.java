@@ -2,6 +2,8 @@ package com.example.controllers;
 
 import com.example.database.Database;
 import com.example.models.AutomacaoEst;
+import com.example.models.AutomacaoRH;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
@@ -9,6 +11,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+
 import java.sql.*;
 
 public class AutomacaoEstoque {
@@ -22,6 +26,10 @@ public class AutomacaoEstoque {
     @FXML private TextField txtQuantidade;
     @FXML private ComboBox<String> cmbEstado;
 
+
+    @FXML private TextField filtrarMaterial;
+    @FXML private TextField filtrarQuantidade;
+    @FXML private TextField filtrarEstado;
     
 
 @FXML
@@ -131,6 +139,31 @@ private void carregarEstoque() {
     }
 }
 
+@FXML
+    private void filtrarEstoque() {
+        FilteredList<AutomacaoEst> dadosFiltrados = new FilteredList<>(listaAutomacaoEst, p -> true);
+
+        dadosFiltrados.setPredicate(produto -> {
+            if (!filtrarMaterial.getText().isEmpty() && !produto.getMaterial().toLowerCase().contains(filtrarMaterial.getText().toLowerCase())) {
+                return false;
+            }
+            if (!filtroSetorAut.getText().isEmpty() && !String.valueOf(produto.getSetor()).toLowerCase().contains(filtroSetorAut.getText().toLowerCase())) {
+                return false;
+            }
+            if (!filtroOperacaoAut.getText().isEmpty() && !String.valueOf(produto.getOperacao()).toLowerCase().contains(filtroOperacaoAut.getText().toLowerCase())) {
+                return false;
+            }
+            if (!filtroLocalizacaoAut.getText().isEmpty() && !produto.getLocalizacao().toLowerCase().contains(filtroLocalizacaoAut.getText().toLowerCase())) {
+                return false;
+            }
+            if (!filtroResponsavelAut.getText().isEmpty() && !produto.getLocalizacao().toLowerCase().contains(filtroResponsavelAut.getText().toLowerCase())) {
+                return false;
+            }
+            return true;
+        });
+
+        tablesAutomacaoRH.setItems(dadosFiltrados);
+    }
     
  private void limparEstoque(){
     txtMaterial.clear();

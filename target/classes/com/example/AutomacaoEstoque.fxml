@@ -81,18 +81,18 @@
                      </graphic>
                   </Button>
                   <Button alignment="CENTER_RIGHT" layoutX="833.0" layoutY="314.0" mnemonicParsing="false" onAction="#limparFiltroEstoque" prefHeight="36.0" prefWidth="106.0" text="Limpar Filtro" />
-                  <TextField fx:id="txtMaterial1" layoutX="785.0" layoutY="83.0" prefHeight="34.0" prefWidth="148.0" promptText="Material" />
-                  <TextField fx:id="txtQuantidade1" layoutX="904.0" layoutY="155.0" prefHeight="35.0" prefWidth="161.0" promptText="Quantidade">
+                  <TextField fx:id="filtrarMaterial" layoutX="785.0" layoutY="83.0" prefHeight="34.0" prefWidth="148.0" promptText="Filtrar por Material" />
+                  <TextField fx:id="filtrarQuantidade" layoutX="904.0" layoutY="155.0" prefHeight="35.0" prefWidth="161.0" promptText="Filtrar por Quantidade">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <TextArea fx:id="txtDescricao1" layoutX="1057.0" layoutY="83.0" prefHeight="38.0" prefWidth="150.0" promptText="Descrição" />
                   <ImageView fitHeight="21.0" fitWidth="31.0" layoutX="838.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@iconDeletar.png" />
+                        <Image url="@iconRemover.png" />
                      </image>
                   </ImageView>
+                  <TextField fx:id="filtrarEstado" layoutX="1065.0" layoutY="84.0" prefHeight="33.0" prefWidth="149.0" promptText="Filtrar por Estado" />
                </children></AnchorPane>
         </content>
       </Tab>
