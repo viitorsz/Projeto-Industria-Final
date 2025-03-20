@@ -30,6 +30,8 @@ public class AutomacaoEstoque {
     @FXML private TextField filtrarMaterial;
     @FXML private TextField filtrarQuantidade;
     @FXML private TextField filtrarEstado;
+
+    ObservableList<AutomacaoEst> listaAutomacaoEst = FXCollections.observableArrayList();
     
 
 @FXML
@@ -116,7 +118,7 @@ public void initialize() {
 }
 
 private void carregarEstoque() {
-    ObservableList<AutomacaoEst> listaAutomacaoEst = FXCollections.observableArrayList();
+    
 
     try (Connection conn = Database.getConnection();
          Statement stmt = conn.createStatement();
@@ -141,28 +143,22 @@ private void carregarEstoque() {
 
 @FXML
     private void filtrarEstoque() {
-        FilteredList<AutomacaoEst> dadosFiltrados = new FilteredList<>(listaAutomacaoEst, p -> true);
+                FilteredList<AutomacaoEst> dadosFiltrados = new FilteredList<>(listaAutomacaoEst, p -> true);
 
         dadosFiltrados.setPredicate(produto -> {
             if (!filtrarMaterial.getText().isEmpty() && !produto.getMaterial().toLowerCase().contains(filtrarMaterial.getText().toLowerCase())) {
                 return false;
             }
-            if (!filtroSetorAut.getText().isEmpty() && !String.valueOf(produto.getSetor()).toLowerCase().contains(filtroSetorAut.getText().toLowerCase())) {
+            if (!filtrarQuantidade.getText().isEmpty() && !String.valueOf(produto.getQuantidade()).toLowerCase().contains(filtrarQuantidade.getText().toLowerCase())) {
                 return false;
             }
-            if (!filtroOperacaoAut.getText().isEmpty() && !String.valueOf(produto.getOperacao()).toLowerCase().contains(filtroOperacaoAut.getText().toLowerCase())) {
+            if (!filtrarEstado.getText().isEmpty() && !String.valueOf(produto.getEstado()).toLowerCase().contains(filtrarEstado.getText().toLowerCase())) {
                 return false;
             }
-            if (!filtroLocalizacaoAut.getText().isEmpty() && !produto.getLocalizacao().toLowerCase().contains(filtroLocalizacaoAut.getText().toLowerCase())) {
-                return false;
-            }
-            if (!filtroResponsavelAut.getText().isEmpty() && !produto.getLocalizacao().toLowerCase().contains(filtroResponsavelAut.getText().toLowerCase())) {
-                return false;
-            }
-            return true;
+                        return false;           
         });
 
-        tablesAutomacaoRH.setItems(dadosFiltrados);
+        tablesAutomacaoEstoque.setItems(dadosFiltrados);
     }
     
  private void limparEstoque(){
