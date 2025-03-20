@@ -240,6 +240,7 @@ private void limparCadastro() {
         txtNomeDaAutomacao.clear();
         txtResponsavel.clear();
         txtSetor.clear();
+        txtDescricao.clear();
         txtLocalizacao.clear();
         cmbCategoria.setValue(null);
         cmbPrioridade.setValue(null);
