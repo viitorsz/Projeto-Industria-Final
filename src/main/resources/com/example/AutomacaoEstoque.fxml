@@ -44,7 +44,7 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Button layoutX="1199.0" layoutY="468.0" mnemonicParsing="false" onAction="#deletarEstoque" prefHeight="36.0" prefWidth="85.0" text="Deletar">
+                  <Button layoutX="1192.0" layoutY="469.0" mnemonicParsing="false" onAction="#deletarEstoque" prefHeight="36.0" prefWidth="85.0" text="Deletar">
                      <graphic>
                         <ImageView fitHeight="21.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -68,7 +68,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextArea layoutX="784.0" layoutY="300.0" prefHeight="38.0" prefWidth="150.0" promptText="Descrição" />
+                  <TextArea fx:id="txtDescricao" layoutX="784.0" layoutY="300.0" prefHeight="38.0" prefWidth="150.0" promptText="Descrição" />
                   <Label layoutX="784.0" layoutY="164.0" text="Quantidade">
                      <font>
                         <Font size="18.0" />
@@ -83,5 +83,15 @@
                </children></AnchorPane>
       </content>
     </Tab>
+      <Tab text="Listar Estoque">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+      <Tab text="Atualizar Estoque">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
     </tabs>
 </TabPane>

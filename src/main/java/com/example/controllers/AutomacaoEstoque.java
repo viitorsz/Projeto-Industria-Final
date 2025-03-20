@@ -22,7 +22,7 @@ public class AutomacaoEstoque {
     @FXML private TextField txtQuantidade;
     @FXML private ComboBox<String> cmbEstado;
 
-    private ObservableList<AutomacaoEst> listaAutomacaoEst = FXCollections.observableArrayList();
+    
 
 @FXML
 private void criarEstoque() {
@@ -38,6 +38,7 @@ private void criarEstoque() {
 
         carregarEstoque();
 
+        limparEstoque();
 
         mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Item criado com sucesso!");
     } catch (SQLException | NumberFormatException e) {
@@ -81,11 +82,11 @@ private void deletarEstoque() {
     }
 
     try (Connection conn = Database.getConnection();
-         PreparedStatement stmt = conn.prepareStatement("DELETE FROM estoque WHERE id=?")) {
+         PreparedStatement stmt = conn.prepareStatement("DELETE FROM automacaoEst WHERE id=?")) {
 
         stmt.setInt(1, itemSelecionado.getId());
         stmt.executeUpdate();
-
+        
         carregarEstoque();
 
         mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Item excluído com sucesso!");
@@ -107,6 +108,7 @@ public void initialize() {
 }
 
 private void carregarEstoque() {
+    ObservableList<AutomacaoEst> listaAutomacaoEst = FXCollections.observableArrayList();
 
     try (Connection conn = Database.getConnection();
          Statement stmt = conn.createStatement();
@@ -130,7 +132,12 @@ private void carregarEstoque() {
 }
 
     
- 
+ private void limparEstoque(){
+    txtMaterial.clear();
+    txtQuantidade.clear();
+    txtDescricao.clear();
+    cmbEstado.setValue(null);
+ }
     
     
     
