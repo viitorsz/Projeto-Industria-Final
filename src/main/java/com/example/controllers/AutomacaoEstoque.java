@@ -22,13 +22,12 @@ public class AutomacaoEstoque {
     @FXML private TextField txtQuantidade;
     @FXML private ComboBox<String> cmbEstado;
 
-    @SuppressWarnings("unused")
     private ObservableList<AutomacaoEst> listaAutomacaoEst = FXCollections.observableArrayList();
 
 @FXML
 private void criarEstoque() {
     try (Connection conn = Database.getConnection();
-         PreparedStatement stmt = conn.prepareStatement("INSERT INTO estoque (material, quantidade, descricao, estado) VALUES (?, ?, ?, ?)")) {
+         PreparedStatement stmt = conn.prepareStatement("INSERT INTO automacaoEst (material, quantidade, descricao, estado) VALUES (?, ?, ?, ?)")) {
 
         stmt.setString(1, txtMaterial.getText());
         stmt.setInt(2, Integer.parseInt(txtQuantidade.getText()));
@@ -38,6 +37,7 @@ private void criarEstoque() {
         stmt.executeUpdate();
 
         carregarEstoque();
+
 
         mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Item criado com sucesso!");
     } catch (SQLException | NumberFormatException e) {
@@ -107,7 +107,6 @@ public void initialize() {
 }
 
 private void carregarEstoque() {
-    ObservableList<AutomacaoEst> listaAutomacaoEst = FXCollections.observableArrayList();
 
     try (Connection conn = Database.getConnection();
          Statement stmt = conn.createStatement();
@@ -131,7 +130,7 @@ private void carregarEstoque() {
 }
 
     
-    
+ 
     
     
     
