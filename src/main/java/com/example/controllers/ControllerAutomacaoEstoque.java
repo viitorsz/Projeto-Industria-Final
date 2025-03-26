@@ -35,7 +35,7 @@ public class ControllerAutomacaoEstoque {
    //controle de tabs
    @FXML private TabPane tabPaneAutomacaoEstoque;
    @FXML private Tab tabAutomacaoEstoque;
-   @FXML private Tab tabListaEstoque;
+   @FXML private Tab tabListarEstoque;
    @FXML private Tab tabAtualizarEstoque;
 
    //controle filtro
@@ -100,13 +100,12 @@ private void editarEstoque() {
     }
 }
 
+
 @FXML
 private void DeletarEstoque() {
     AutomacaoEst itemSelecionado = tablesAutomacaoEstoque.getSelectionModel().getSelectedItem();
-    if (itemSelecionado == null) {
-        mostrarAlerta(Alert.AlertType.WARNING, "Atenção", "Selecione um item para excluir.");
-        return;
-    }
+    if (itemSelecionado != null) {     
+    
 
     try (Connection conn = Database.getConnection();
          PreparedStatement stmt = conn.prepareStatement("DELETE FROM automacaoEst WHERE id=?")) {
@@ -115,10 +114,15 @@ private void DeletarEstoque() {
         stmt.executeUpdate();
         
         carregarEstoque();
+        
 
         mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Item excluído com sucesso!");
-    } catch (SQLException e) {
-        mostrarAlerta(Alert.AlertType.ERROR, "Erro", "Erro ao excluir item! " + e.getMessage());
+        tabPaneAutomacaoEstoque.getSelectionModel().select(tabListarEstoque);
+        } catch (SQLException e) {
+            mostrarAlerta(Alert.AlertType.ERROR, "Erro", "Erro ao excluir item: " + e.getMessage());
+        }
+    } else {
+        mostrarAlerta(Alert.AlertType.WARNING, "Atenção", "Selecione um item para excluir!");
     }
 }
 

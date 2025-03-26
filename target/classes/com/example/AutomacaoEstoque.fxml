@@ -59,7 +59,7 @@
                </children></AnchorPane>
       </content>
     </Tab>
-      <Tab fx:id="tabListaEstoque" text="Listar Estoque">
+      <Tab fx:id="tabListarEstoque" text="Listar Estoque">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -103,7 +103,7 @@
         <content>
          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="628.0" prefWidth="956.0">
                <children>
-                  <Button fx:id="btnAtualizarEstoque" layoutX="106.0" layoutY="288.0" mnemonicParsing="false" onAction="#editarEstoque" prefHeight="36.0" prefWidth="99.0" text="Atualizar">
+                  <Button fx:id="btnAtualizarEstoque" layoutX="106.0" layoutY="288.0" mnemonicParsing="false" onAction="#criarEstoque" prefHeight="36.0" prefWidth="99.0" text="Atualizar">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                            <image>

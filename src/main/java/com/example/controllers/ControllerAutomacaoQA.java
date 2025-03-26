@@ -12,12 +12,6 @@ import javafx.collections.transformation.FilteredList;
 
 import java.sql.*;
 
-<<<<<<< Updated upstream
-
-
-
-=======
->>>>>>> Stashed changes
 public class ControllerAutomacaoQA {
 
     
