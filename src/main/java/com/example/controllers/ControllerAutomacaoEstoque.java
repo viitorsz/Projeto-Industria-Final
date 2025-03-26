@@ -15,7 +15,7 @@ import javafx.collections.transformation.FilteredList;
 
 import java.sql.*;
 
-public class AutomacaoEstoque {
+public class ControllerAutomacaoEstoque {
     @FXML private TableView<AutomacaoEst> tablesAutomacaoEstoque;
     @FXML private TableColumn<AutomacaoEst, String> colMaterial;
     @FXML private TableColumn<AutomacaoEst, String> colDescricaoEst;

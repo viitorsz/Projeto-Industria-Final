@@ -15,7 +15,7 @@ import javafx.collections.transformation.FilteredList;
 
 import java.sql.*;
 
-public class AutomacaoController {
+public class ControllerAutomacaoRH {
     @FXML private TextField txtNomeDaAutomacao;
     @FXML private TextField txtResponsavel;
     @FXML private TextArea txtDescricao;
