@@ -2,7 +2,6 @@ package com.example.controllers;
 
 import com.example.database.Database;
 import com.example.models.AutomacaoEst;
-//import com.example.models.AutomacaoRH;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
