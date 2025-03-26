@@ -11,3 +11,8 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 
 import java.sql.*;
+
+public class ControllerAutomacaoFinanceiro{
+
+    
+}
