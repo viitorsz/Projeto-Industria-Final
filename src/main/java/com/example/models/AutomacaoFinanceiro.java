@@ -1,5 +1,5 @@
 package com.example.models;
 
-public class AutomacaoProdutos {
+public class AutomacaoFinanceiro {
     
 }

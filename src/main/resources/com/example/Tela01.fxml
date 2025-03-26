@@ -18,10 +18,20 @@
          <fx:include source="AutomacaoRH.fxml" />
       </content>
     </Tab>
-      <Tab text="Automação Produtos">
+      <Tab text="Automação Produção">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-           <fx:include source="AutomacaoProdutos.fxml" />
+           <fx:include source="AutomacaoProducao.fxml" />
+        </content>
+      </Tab>
+      <Tab text="Automação Financeiro">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+      <Tab text="Automação Q.A">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
         </content>
       </Tab>
   </tabs>

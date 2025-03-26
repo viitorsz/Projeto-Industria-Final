@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.application.Platform;
+import javafx.scene.input.MouseEvent;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -31,6 +32,22 @@ public class AutomacaoEstoque {
     @FXML private TextField filtroQuantidadeEst;
     @FXML private TextField filtroEstadoEst;
     @FXML private Button btnLimparEstoque;
+
+   //controle de tabs
+   @FXML private TabPane tabPaneAutomacaoEstoque;
+   @FXML private Tab tabAutomacaoEstoque;
+   @FXML private Tab tabListaEstoque;
+   @FXML private Tab tabAtualizarEstoque;
+
+   //controle filtro
+   @FXML private TextField txtAtualizarMaterial;
+   @FXML private TextField txtAtualizarQuantidade;
+   @FXML private TextArea txtAtualizarDescricao;
+   @FXML private ComboBox<String> cmbAtualizarEstado;
+   @FXML private Button btnAtualizarEstoque;
+   @FXML private Button btnDeletarEstoque;
+
+
 
     ObservableList<AutomacaoEst> listaAutomacaoEst = FXCollections.observableArrayList();
     
@@ -85,7 +102,7 @@ private void editarEstoque() {
 }
 
 @FXML
-private void deletarEstoque() {
+private void DeletarEstoque() {
     AutomacaoEst itemSelecionado = tablesAutomacaoEstoque.getSelectionModel().getSelectedItem();
     if (itemSelecionado == null) {
         mostrarAlerta(Alert.AlertType.WARNING, "Atenção", "Selecione um item para excluir.");
@@ -114,8 +131,15 @@ public void initialize() {
     colEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
 
     cmbEstado.getItems().addAll("Disponível", "Indisponível", "Reservado");
-
+    cmbAtualizarEstado.getItems().addAll("Disponível", "Indisponível", "Reservado");
     carregarEstoque();
+
+    tablesAutomacaoEstoque.setOnMouseClicked((MouseEvent event) -> {
+        if (event.getClickCount() > 1) {
+            preencherCamposAtualizacao();
+            
+        }
+    });
 }
 
 private void carregarEstoque() {
@@ -177,7 +201,17 @@ private void carregarEstoque() {
         tablesAutomacaoEstoque.setItems(listaAutomacaoEst); 
     }
     
-    
+    private void preencherCamposAtualizacao() {
+        AutomacaoEst automacaoSelecionada = tablesAutomacaoEstoque.getSelectionModel().getSelectedItem();
+        if (automacaoSelecionada != null) {
+            txtAtualizarMaterial.setText(automacaoSelecionada.getMaterial());
+            txtAtualizarDescricao.setText(automacaoSelecionada.getDescricao());
+            cmbAtualizarEstado.setValue(automacaoSelecionada.getEstado());
+            txtAtualizarQuantidade.setText(String.valueOf(automacaoSelecionada.getQuantidade()));
+
+            tabPaneAutomacaoEstoque.getSelectionModel().select(tabAtualizarEstoque);
+        }
+    }
     
     
     
