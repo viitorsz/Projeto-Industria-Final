@@ -12,9 +12,16 @@ import javafx.collections.transformation.FilteredList;
 
 import java.sql.*;
 
+<<<<<<< Updated upstream
 
 
 
 public class ControllerAutomacaoProducao{
 
 }
+=======
+public class ControllerAutomacaoProducao {
+
+    
+}
+>>>>>>> Stashed changes
