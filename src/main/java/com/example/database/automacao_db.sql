@@ -22,6 +22,17 @@ CREATE TABLE automacaoEst (
     estado VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE automacaoQA (
+    id int not null auto_increment PRIMARY KEY,
+    produto INT NOT NULL CHECK (produto >= 0),
+    selo_qualidade VARCHAR(100) NOT NULL,
+    descricao VARCHAR(100) NOT NULL,
+    caso VARCHAR(100) NOT NULL,
+    chegada VARCHAR(50) NOT NULL,
+    saida VARCHAR(50) NOT NULL,
+    porcentagem_qualidade VARCHAR(100) NOT NULL
+);
+
 INSERT INTO automacaorh (nome_automacao, responsavel, categoria, descricao, operacao, setor, localizacao, situacao, prioridade) VALUES
 ('Automação de Folha de Ponto', 'João Silva', 'RH', 'Automatiza o registro de horas trabalhadas', 'Registro', 'Recursos Humanos', 'Sede', 'Ativo', 'Alta'),
 ('Relatório de Desempenho', 'Maria Oliveira', 'RH', 'Gera relatórios de desempenho dos colaboradores', 'Geração de Relatórios', 'Recursos Humanos', 'Sede', 'Ativo', 'Média'),
@@ -66,3 +77,17 @@ INSERT INTO automacaoEst (material, descricao, quantidade, estado) VALUES
 ('Suporte para Monitor', 'Suporte para ajuste de altura do monitor', 10, 'Novo'),
 ('Sistema de Backup', 'Sistema para backup de dados', 1, 'Licenciado'),
 ('Equipamento de Segurança', 'Equipamento para segurança no trabalho', 5, 'Novo');
+
+
+INSERT INTO automacaoQA (produto, selo_qualidade, descricao, caso, chegada, saida, porcentagem_qualidade) VALUES
+(12, 'A+', 'Máquina caça-níquel modelo Vegas', 'Em operação', '2025-03-01', '2026-03-01', 98.5),
+(25, 'C', 'Máquina caça-níquel temática do Egito', 'Em manutenção', '2025-02-15', '2026-02-15', 72.0),
+(33, 'B', 'Máquina caça-níquel clássica', 'Disponível', '2025-03-10', '2026-03-10', 85.3),
+(47, 'D', 'Máquina caça-níquel digital com bônus', 'Reservado', '2025-01-20', '2026-01-20', 65.0),
+(56, 'A', 'Máquina caça-níquel com rodadas grátis', 'Disponível', '2025-03-05', '2026-03-05', 91.2),
+(61, 'F', 'Máquina caça-níquel 777 deluxe', 'Em operação', '2025-02-28', '2026-02-28', 40.6),
+(72, 'B+', 'Máquina caça-níquel progressiva', 'Reservado', '2025-03-12', '2026-03-12', 88.8),
+(81, 'E', 'Máquina caça-níquel com jackpot', 'Em manutenção', '2025-01-10', '2026-01-10', 55.5),
+(90, 'A+', 'Máquina caça-níquel temática de frutas', 'Disponível', '2025-03-08', '2026-03-08', 97.8),
+(100, 'C', 'Máquina caça-níquel com bônus surpresa', 'Em operação', '2025-02-22', '2026-02-22', 74.4);
+

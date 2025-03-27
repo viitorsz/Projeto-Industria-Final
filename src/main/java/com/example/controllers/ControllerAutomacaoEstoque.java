@@ -25,6 +25,7 @@ public class ControllerAutomacaoEstoque {
     @FXML private TextField txtQuantidade;
     @FXML private ComboBox<String> cmbEstado;
 
+    // Comando dos filtros
     @FXML private TextField filtroMaterial;
     @FXML private TextField filtroQuantidade;
     @FXML private ComboBox<String> cmbfiltroEstado;
