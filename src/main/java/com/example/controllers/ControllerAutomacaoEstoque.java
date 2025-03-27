@@ -103,6 +103,12 @@ public class ControllerAutomacaoEstoque {
 
                 stmt.setInt(1, itemSelecionado.getId());
                 stmt.executeUpdate();
+                
+                txtAtualizarMaterial.clear();
+                txtAtualizarDescricao.clear();
+                txtAtualizarQuantidade.clear();
+                cmbAtualizarEstado.getSelectionModel().clearSelection();     
+
                 carregarEstoque();
                 mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Item excluído com sucesso!");
                 tabPaneAutomacaoEstoque.getSelectionModel().select(tabListarEstoque);

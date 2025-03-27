@@ -268,6 +268,16 @@ public void deleteArh() {
             stmt.setInt(1, automacaoSelecionada.getId());
             stmt.executeUpdate();
             
+            txtAtuNomeDaAutomacao.clear();
+            txtAtuSetor.clear();
+            txtAtuDescricao.clear();
+            txtAtuOperacao.clear();
+            txtAtuLocalizacao.clear();  
+            txtAtuResponsavel.clear();
+            cmbAtuPrioridade.getSelectionModel().clearSelection();
+            cmbAtuCategoria.getSelectionModel().clearSelection();
+            cmbAtuSituacao.getSelectionModel().clearSelection();
+            
             carregarAutomacaoRH(); // Atualiza a tabela após a exclusão
             
             mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Automação excluída com sucesso!");
