@@ -2,6 +2,7 @@ package com.example.controllers;
 
 import com.example.database.Database;
 import com.example.models.AutomacaoEst;
+import com.example.models.AutomacaoRH;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -215,6 +216,34 @@ private void carregarEstoque() {
             tabPaneAutomacaoEstoque.getSelectionModel().select(tabAtualizarEstoque);
         }
     }
+
+    public void atualizarEstoque() {
+    AutomacaoEst automacaoSelecionada = tablesAutomacaoEstoque.getSelectionModel().getSelectedItem();
+    
+    if (automacaoSelecionada != null) {
+        try (Connection conn = Database.getConnection();
+             PreparedStatement stmt = conn.prepareStatement("UPDATE automacaoEst SET material = ?, descricao = ?, quantidade = ? estado = ?, WHERE id = ?")) {
+            
+            stmt.setString(1, txtAtualizarMaterial.getText());
+            stmt.setString(2, txtAtualizarDescricao.getText());
+            stmt.setString(3, txtAtualizarQuantidade.getText());
+            stmt.setString(4, cmbAtualizarEstado.getValue());            
+            stmt.setInt(5, automacaoSelecionada.getId());
+            
+            stmt.executeUpdate();
+            
+            carregarEstoque(); // Atualiza a tabela após a atualização
+
+            tabPaneAutomacaoEstoque.getSelectionModel().select(tabListarEstoque);
+            
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Automação atualizada com sucesso!");
+        } catch (SQLException e) {
+            mostrarAlerta(Alert.AlertType.ERROR, "Erro", "Erro ao atualizar automação: " + e.getMessage());
+        }
+    } else {
+        mostrarAlerta(Alert.AlertType.WARNING, "Atenção", "Selecione uma automação para atualizar!");
+    }
+}
     
     
     
