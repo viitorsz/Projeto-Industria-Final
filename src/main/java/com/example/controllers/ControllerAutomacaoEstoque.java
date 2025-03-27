@@ -2,7 +2,7 @@ package com.example.controllers;
 
 import com.example.database.Database;
 import com.example.models.AutomacaoEst;
-import com.example.models.AutomacaoRH;
+//import com.example.models.AutomacaoRH;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -172,10 +172,10 @@ private void carregarEstoque() {
 
 @FXML
     private void filtrarAutomacaoEst() {
-        FilteredList<AutomacaoEst> dadosFiltrados = new FilteredList<>(listaAutomacaoEst, p -> true);
+        FilteredList<AutomacaoEst> itensFiltradoEsts = new FilteredList<>(listaAutomacaoEst, p -> true);
 
-        dadosFiltrados.setPredicate(produto -> {
-            if (!filtroMaterialEst.getText().isEmpty() && !produto.getMaterial().toLowerCase().contains(filtroMaterialEst.getText().toLowerCase())) {
+        itensFiltradoEsts.setPredicate(produto -> {
+            if (!filtroMaterialEst.getText().isEmpty() && !String.valueOf(produto.getMaterial()).toLowerCase().contains(filtroMaterialEst.getText().toLowerCase())) {
                 return false;
             }
             if (!filtroQuantidadeEst.getText().isEmpty() && !String.valueOf(produto.getQuantidade()).toLowerCase().contains(filtroQuantidadeEst.getText().toLowerCase())) {
@@ -187,7 +187,7 @@ private void carregarEstoque() {
             return false;           
         });
 
-       tablesAutomacaoEstoque.setItems(dadosFiltrados);
+       tablesAutomacaoEstoque.setItems(itensFiltradoEsts);
     }
     
  private void limparEstoque(){
