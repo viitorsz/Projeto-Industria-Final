@@ -222,7 +222,7 @@ private void carregarEstoque() {
     
     if (automacaoSelecionada != null) {
         try (Connection conn = Database.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("UPDATE automacaoEst SET material = ?, descricao = ?, quantidade = ? estado = ?, WHERE id = ?")) {
+             PreparedStatement stmt = conn.prepareStatement("UPDATE automacaoEst SET material = ?, descricao = ?, quantidade = ?, estado = ? WHERE id = ?")) {
             
             stmt.setString(1, txtAtualizarMaterial.getText());
             stmt.setString(2, txtAtualizarDescricao.getText());
