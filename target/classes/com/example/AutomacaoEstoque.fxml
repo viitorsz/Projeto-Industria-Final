@@ -71,14 +71,13 @@
                         <TableColumn fx:id="colEstado" prefWidth="149.0" text="Estado" />
                      </columns>
                   </TableView>
-                  <TextField fx:id="filtroMaterialEst" layoutX="785.0" layoutY="83.0" prefHeight="34.0" prefWidth="148.0" promptText="Filtrar por Material" />
-                  <TextField fx:id="filtroQuantidadeEst" layoutX="914.0" layoutY="155.0" prefHeight="35.0" prefWidth="161.0" promptText="Filtrar por Quantidade">
+                  <TextField fx:id="filtroMaterial" layoutX="785.0" layoutY="83.0" prefHeight="34.0" prefWidth="148.0" promptText="Filtrar por Material" />
+                  <TextField fx:id="filtroQuantidade" layoutX="914.0" layoutY="155.0" prefHeight="35.0" prefWidth="161.0" promptText="Filtrar por Quantidade">
                      <font>
                         <Font size="13.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="filtroEstadoEst" layoutX="1065.0" layoutY="84.0" prefHeight="33.0" prefWidth="149.0" promptText="Filtrar por Estado" />
-                  <Button layoutX="1063.0" layoutY="324.0" mnemonicParsing="false" onAction="#limparFiltroEstoque" text="Limpar Filtro">
+                  <Button layoutX="1063.0" layoutY="324.0" mnemonicParsing="false" onAction="#limparFiltros" text="Limpar Filtro">
                      <graphic>
                         <ImageView fitHeight="21.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -87,7 +86,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="933.0" layoutY="324.0" mnemonicParsing="false" onAction="#filtrarAutomacaoEst" prefHeight="30.0" prefWidth="94.0" text="Filtrar">
+                  <Button layoutX="933.0" layoutY="324.0" mnemonicParsing="false" onAction="#filtrarTabela" prefHeight="30.0" prefWidth="94.0" text="Filtrar">
                      <graphic>
                         <ImageView fitHeight="19.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -96,6 +95,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <ComboBox fx:id="cmbfiltroEstado" layoutX="1063.0" layoutY="83.0" prefWidth="150.0" />
                </children></AnchorPane>
         </content>
       </Tab>

@@ -1,12 +1,14 @@
 package com.example.models;
 
 public class AutomacaoEst {
+
     private int id;
     private String material;
     private String descricao;
     private int quantidade;
-    private String  estado;
+    private String estado;
 
+    // Construtor
     public AutomacaoEst(int id, String material, String descricao, int quantidade, String estado) {
         this.id = id;
         this.material = material;
@@ -15,6 +17,7 @@ public class AutomacaoEst {
         this.estado = estado;
     }
 
+    // Getters e Setters
     public int getId() {
         return id;
     }
