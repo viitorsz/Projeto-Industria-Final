@@ -1,19 +1,16 @@
 package com.example.controllers;
 
+import com.example.database.Database;
+import com.example.models.AutomacaoQA;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.application.Platform;
-//import javafx.scene.input.MouseEvent;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-//import javafx.collections.transformation.FilteredList;
 
 import java.sql.*;
-
-import com.example.database.Database;
-import com.example.models.AutomacaoQA;
 
 public class ControllerAutomacaoQA {
 
@@ -89,12 +86,12 @@ public class ControllerAutomacaoQA {
                 listaAutomacaoQA.add(new AutomacaoQA(
                         rs.getInt("id"),
                         rs.getInt("produto"),
-                        rs.getString("selo_qualidade"),
+                        rs.getString("selo"),
                         rs.getString("descricao"),
                         rs.getString("caso"),
                         rs.getString("chegada"),
                         rs.getString("saida"),
-                        rs.getString("porcentagem_qualidade")
+                        rs.getString("porcentagem")
                 ));
             }
 
@@ -240,6 +237,13 @@ public class ControllerAutomacaoQA {
         txtChegada.clear();
         txtSaida.clear();
         txtPorcentagem.clear();
+    }
+
+    public void limparQA() {
+        filtroProduto.clear();
+        filtroSelo.clear();
+        cmbfiltroCaso.getSelectionModel().clearSelection();
+        tablesAutomacaoQA.setItems(listaAutomacaoQA);
     }
 
     // Método para mostrar alertas

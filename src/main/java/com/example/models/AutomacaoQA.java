@@ -4,24 +4,24 @@ package com.example.models;
         
         private int id;
         private int produto;
-        private String seloQualidade;
+        private String selo;
         private String descricaoQA;
         private String caso;
         private String chegada;
         private String saida;
-        private String porcentagemQualidade;
+        private String porcentagem;
     
         // Construtor
-        public AutomacaoQA(int id, int produto, String seloQualidade, String descricaoQA, String caso, 
-                           String chegada, String saida, String porcentagemQualidade) {
+        public AutomacaoQA(int id, int produto, String selo, String descricaoQA, String caso, 
+                           String chegada, String saida, String porcentagem) {
             this.id = id;
             this.produto = produto;
-            this.seloQualidade = seloQualidade;
+            this.selo = selo;
             this.descricaoQA = descricaoQA;
             this.caso = caso;
             this.chegada = chegada;
             this.saida = saida;
-            this.porcentagemQualidade = porcentagemQualidade;
+            this.porcentagem = porcentagem;
         }
     
         // Getters e Setters
@@ -42,11 +42,11 @@ package com.example.models;
         }
     
         public String getSeloQualidade() {
-            return seloQualidade;
+            return selo;
         }
     
         public void setSeloQualidade(String seloQualidade) {
-            this.seloQualidade = seloQualidade;
+            this.selo = seloQualidade;
         }
     
         public String getDescricao() {
@@ -82,11 +82,11 @@ package com.example.models;
         }
     
         public String getPorcentagemQualidade() {
-            return porcentagemQualidade;
+            return porcentagem;
         }
     
         public void setPorcentagemQualidade(String porcentagemQualidade) {
-            this.porcentagemQualidade = porcentagemQualidade;
+            this.porcentagem = porcentagemQualidade;
         }
     }
     

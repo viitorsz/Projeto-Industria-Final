@@ -25,12 +25,12 @@ CREATE TABLE automacaoEst (
 CREATE TABLE automacaoQA (
     id int not null auto_increment PRIMARY KEY,
     produto INT NOT NULL CHECK (produto >= 0),
-    selo_qualidade VARCHAR(100) NOT NULL,
+    selo VARCHAR(100) NOT NULL,
     descricao VARCHAR(100) NOT NULL,
     caso VARCHAR(100) NOT NULL,
     chegada VARCHAR(50) NOT NULL,
     saida VARCHAR(50) NOT NULL,
-    porcentagem_qualidade VARCHAR(100) NOT NULL
+    porcentagem VARCHAR(100) NOT NULL
 );
 
 INSERT INTO automacaorh (nome_automacao, responsavel, categoria, descricao, operacao, setor, localizacao, situacao, prioridade) VALUES
@@ -79,7 +79,7 @@ INSERT INTO automacaoEst (material, descricao, quantidade, estado) VALUES
 ('Equipamento de Segurança', 'Equipamento para segurança no trabalho', 5, 'Novo');
 
 
-INSERT INTO automacaoQA (produto, selo_qualidade, descricao, caso, chegada, saida, porcentagem_qualidade) VALUES
+INSERT INTO automacaoQA (produto, selo, descricao, caso, chegada, saida, porcentagem) VALUES
 (12, 'A+', 'Máquina caça-níquel modelo Vegas', 'Em operação', '2025-03-01', '2026-03-01', 98.5),
 (25, 'C', 'Máquina caça-níquel temática do Egito', 'Em manutenção', '2025-02-15', '2026-02-15', 72.0),
 (33, 'B', 'Máquina caça-níquel clássica', 'Disponível', '2025-03-10', '2026-03-10', 85.3),
