@@ -41,12 +41,12 @@ package com.example.models;
             this.produto = produto;
         }
     
-        public String getSeloQualidade() {
+        public String getSelo() {
             return selo;
         }
     
-        public void setSeloQualidade(String seloQualidade) {
-            this.selo = seloQualidade;
+        public void setSelo(String selo) {
+            this.selo = selo;
         }
     
         public String getDescricao() {
@@ -81,12 +81,12 @@ package com.example.models;
             this.saida = saida;
         }
     
-        public String getPorcentagemQualidade() {
+        public String getPorcentagem() {
             return porcentagem;
         }
     
-        public void setPorcentagemQualidade(String porcentagemQualidade) {
-            this.porcentagem = porcentagemQualidade;
+        public void setPorcentagem(String porcentagem) {
+            this.porcentagem = porcentagem;
         }
     }
     

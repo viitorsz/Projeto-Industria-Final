@@ -80,14 +80,14 @@ INSERT INTO automacaoEst (material, descricao, quantidade, estado) VALUES
 
 
 INSERT INTO automacaoQA (produto, selo, descricao, caso, chegada, saida, porcentagem) VALUES
-(12, 'A+', 'Máquina caça-níquel modelo Vegas', 'Em operação', '2025-03-01', '2026-03-01', 98.5),
-(25, 'C', 'Máquina caça-níquel temática do Egito', 'Em manutenção', '2025-02-15', '2026-02-15', 72.0),
-(33, 'B', 'Máquina caça-níquel clássica', 'Disponível', '2025-03-10', '2026-03-10', 85.3),
-(47, 'D', 'Máquina caça-níquel digital com bônus', 'Reservado', '2025-01-20', '2026-01-20', 65.0),
-(56, 'A', 'Máquina caça-níquel com rodadas grátis', 'Disponível', '2025-03-05', '2026-03-05', 91.2),
-(61, 'F', 'Máquina caça-níquel 777 deluxe', 'Em operação', '2025-02-28', '2026-02-28', 40.6),
-(72, 'B+', 'Máquina caça-níquel progressiva', 'Reservado', '2025-03-12', '2026-03-12', 88.8),
-(81, 'E', 'Máquina caça-níquel com jackpot', 'Em manutenção', '2025-01-10', '2026-01-10', 55.5),
-(90, 'A+', 'Máquina caça-níquel temática de frutas', 'Disponível', '2025-03-08', '2026-03-08', 97.8),
-(100, 'C', 'Máquina caça-níquel com bônus surpresa', 'Em operação', '2025-02-22', '2026-02-22', 74.4);
+(12, 'A+', 'Máquina caça-níquel modelo Vegas', 'Em operação', '01/03/2025', '01/03/2026', '98.5%'),
+(25, 'C', 'Máquina caça-níquel temática do Egito', 'Em manutenção', '15/02/2025', '15/02/2026', '72.0%'),
+(33, 'B', 'Máquina caça-níquel clássica', 'Disponível', '10/03/2025', '10/03/2026', '85.3%'),
+(47, 'D', 'Máquina caça-níquel digital com bônus', 'Reservado', '20/01/2025', '20/01/2026', '65.0%'),
+(56, 'A', 'Máquina caça-níquel com rodadas grátis', 'Disponível', '05/03/2025', '05/03/2026', '91.2%'),
+(61, 'F', 'Máquina caça-níquel 777 deluxe', 'Em operação', '28/02/2025', '28/02/2026', '40.6%'),
+(72, 'B+', 'Máquina caça-níquel progressiva', 'Reservado', '12/03/2025', '12/03/2026', '88.8%'),
+(81, 'E', 'Máquina caça-níquel com jackpot', 'Em manutenção', '10/01/2025', '10/01/2026', '55.5%'),
+(90, 'A+', 'Máquina caça-níquel temática de frutas', 'Disponível', '08/03/2025', '08/03/2026', '97.8%'),
+(100, 'C', 'Máquina caça-níquel com bônus surpresa', 'Em operação', '22/02/2025', '22/02/2026', '74.4%');
 

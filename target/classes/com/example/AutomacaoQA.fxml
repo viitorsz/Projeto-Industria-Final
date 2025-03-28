@@ -78,21 +78,21 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="tablesAutomacaoQA" layoutX="14.0" layoutY="14.0" prefHeight="601.0" prefWidth="642.0">
+                  <TableView fx:id="tablesAutomacaoQA" layoutX="14.0" layoutY="14.0" prefHeight="601.0" prefWidth="820.0">
                     <columns>
                       <TableColumn fx:id="colProduto" prefWidth="75.0" text="Produto" />
                       <TableColumn fx:id="colSelo" prefWidth="115.0" text="Selo de Qualidade" />
-                        <TableColumn fx:id="colDescricaoQA" prefWidth="77.0" text="Descrição" />
-                        <TableColumn fx:id="colCaso" prefWidth="58.0" text="Caso" />
-                        <TableColumn fx:id="colChegada" prefWidth="77.0" text="Chegada" />
-                        <TableColumn fx:id="colSaida" prefWidth="64.0" text="Saida" />
-                        <TableColumn fx:id="colPorcentagem" prefWidth="174.0" text="Porcentagem de Qualidade" />
+                        <TableColumn fx:id="colDescricaoQA" prefWidth="182.0" text="Descrição" />
+                        <TableColumn fx:id="colCaso" prefWidth="114.0" text="Caso" />
+                        <TableColumn fx:id="colChegada" prefWidth="86.0" text="Chegada" />
+                        <TableColumn fx:id="colSaida" prefWidth="89.0" text="Saida" />
+                        <TableColumn fx:id="colPorcentagem" prefWidth="158.0" text="Porcentagem de Qualidade" />
                     </columns>
                   </TableView>
-                  <TextField fx:id="filtroProduto" layoutX="732.0" layoutY="108.0" promptText="Filtrar por Produto" />
-                  <TextField fx:id="filtroSelo" layoutX="881.0" layoutY="153.0" promptText="Filtrar por Selo" />
-                  <ComboBox fx:id="cmbfiltroCaso" layoutX="1030.0" layoutY="108.0" prefWidth="150.0" promptText="Filtrar por Caso" />
-                  <Button layoutX="829.0" layoutY="276.0" mnemonicParsing="false" onAction="#filtrarQA" text="Filtrar">
+                  <TextField fx:id="filtroProduto" layoutX="890.0" layoutY="96.0" promptText="Filtrar por Produto" />
+                  <TextField fx:id="filtroSelo" layoutX="1039.0" layoutY="143.0" promptText="Filtrar por Selo" />
+                  <ComboBox fx:id="cmbfiltroCaso" layoutX="1188.0" layoutY="96.0" prefWidth="150.0" promptText="Filtrar por Caso" />
+                  <Button layoutX="955.0" layoutY="256.0" mnemonicParsing="false" onAction="#filtrarQA" text="Filtrar">
                      <graphic>
                         <ImageView fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -101,7 +101,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="1030.0" layoutY="276.0" mnemonicParsing="false" onAction="#limparQA" text="Limpar Filtro">
+                  <Button layoutX="1188.0" layoutY="256.0" mnemonicParsing="false" onAction="#limparQA" text="Limpar Filtro">
                      <graphic>
                         <ImageView fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                            <image>

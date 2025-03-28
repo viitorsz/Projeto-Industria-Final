@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -49,13 +50,13 @@ public class ControllerAutomacaoQA {
     @FXML private TextField filtroSelo;
     @FXML private ComboBox<String> cmbfiltroCaso;
 
-    private ObservableList<AutomacaoQA> listaAutomacaoQA = FXCollections.observableArrayList();
+    ObservableList<AutomacaoQA> listaAutomacaoQA = FXCollections.observableArrayList();
 
     // Método para gerar QA
     @FXML
     private void gerarQA() {
         try (Connection conn = Database.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO automacaoQA (produto, selo_qualidade, descricao, caso, chegada, saida, porcentagem_qualidade) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
+             PreparedStatement stmt = conn.prepareStatement("INSERT INTO automacaoQA (produto, selo, descricao, caso, chegada, saida, porcentagem) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
 
             stmt.setInt(1, Integer.parseInt(txtProduto.getText()));
             stmt.setString(2, txtSelo.getText());
@@ -174,7 +175,7 @@ public class ControllerAutomacaoQA {
 
         for (AutomacaoQA item : listaAutomacaoQA) {
             boolean filtrarProduto = textoProduto.isEmpty() || String.valueOf(item.getProduto()).toLowerCase().contains(textoProduto);
-            boolean filtrarSelo = textoSelo.isEmpty() || item.getSeloQualidade().toLowerCase().contains(textoSelo);
+            boolean filtrarSelo = textoSelo.isEmpty() || item.getSelo().toLowerCase().contains(textoSelo);
             boolean filtrarCaso = casoSelecionado == null || casoSelecionado.isEmpty() || item.getCaso().equalsIgnoreCase(casoSelecionado);
 
             if (filtrarProduto && filtrarSelo && filtrarCaso) {
@@ -189,12 +190,12 @@ public class ControllerAutomacaoQA {
         AutomacaoQA automacaoSelecionada = tablesAutomacaoQA.getSelectionModel().getSelectedItem();
         if (automacaoSelecionada != null) {
             txtAtualizarProduto.setText(String.valueOf(automacaoSelecionada.getProduto()));
-            txtAtualizarSelo.setText(automacaoSelecionada.getSeloQualidade());
+            txtAtualizarSelo.setText(automacaoSelecionada.getSelo());
             txtAtualizarDescricaoQA.setText(automacaoSelecionada.getDescricao());
             cmbAtualizarCaso.setValue(automacaoSelecionada.getCaso());
             txtAtualizarChegada.setText(automacaoSelecionada.getChegada());
             txtAtualizarSaida.setText(automacaoSelecionada.getSaida());
-            txtAtualizarPorcentagem.setText(automacaoSelecionada.getPorcentagemQualidade());            
+            txtAtualizarPorcentagem.setText(automacaoSelecionada.getPorcentagem());            
 
             tabPaneAutomacaoQA.getSelectionModel().select(tabAtualizarQA);
         }
@@ -272,9 +273,18 @@ public class ControllerAutomacaoQA {
         // Preenchendo os ComboBoxes
         cmbCaso.getItems().addAll("Disponível", "Indisponível", "Reservado", "Em Manutenção", "Em Operação");
         cmbfiltroCaso.getItems().addAll("Disponível", "Indisponível", "Reservado", "Em Manutenção", "Em Operação");
+        cmbAtualizarCaso.getItems().addAll("Disponível", "Indisponível", "Reservado", "Em Manutenção", "Em Operação");
+         
+        tablesAutomacaoQA.setItems(listaAutomacaoQA);
 
         // Carregar dados ao inicializar
         carregarQA();
+
+        tablesAutomacaoQA.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getClickCount() > 1) {
+                preencherCamposAtualizacao();
+            }
+        });
     }
 }
 
