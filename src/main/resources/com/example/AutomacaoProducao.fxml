@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -8,7 +9,13 @@
    <tabs>
       <Tab text="Produção">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Nome do produto" />
+                  <Label layoutX="14.0" layoutY="126.0" text="Preço" />
+                  <Label layoutX="15.0" layoutY="257.0" text="Lote" />
+                  <Label layoutX="13.0" layoutY="390.0" text="Código" />
+               </children></AnchorPane>
         </content>
       </Tab>
       <Tab text="Listar Produção">

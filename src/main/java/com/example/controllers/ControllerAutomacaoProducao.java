@@ -1,5 +1,7 @@
 package com.example.controllers;
 
+import com.example.database.Database;
+import com.example.models.AutomacaoEst;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
@@ -8,7 +10,7 @@ import javafx.application.Platform;
 import javafx.scene.input.MouseEvent;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
+//import javafx.collections.transformation.FilteredList;
 
 import java.sql.*;
 
