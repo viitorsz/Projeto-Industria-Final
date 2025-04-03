@@ -1,24 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="1355.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="867.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
     <Tab text="Financeiro">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="28.0" layoutY="49.0" text="Nome Automação" />
+                  <Label layoutX="28.0" layoutY="135.0" text="Setor" />
+                  <Label layoutX="275.0" layoutY="49.0" text="Descrição" />
+                  <Label layoutX="275.0" layoutY="135.0" text="Categoria" />
+                  <Label layoutX="24.0" layoutY="214.0" text="Estado" />
+                  <TextField fx:id="txtNomeFin" layoutX="28.0" layoutY="66.0" />
+                  <TextArea fx:id="txtDescricaoFin" layoutX="273.0" layoutY="66.0" prefHeight="30.0" prefWidth="136.0" />
+                  <ComboBox fx:id="cmbSetorFin" layoutX="28.0" layoutY="152.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbEstadoFin" layoutX="24.0" layoutY="237.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbCategoriaFin" layoutX="275.0" layoutY="152.0" prefWidth="150.0" />
+               </children></AnchorPane>
       </content>
     </Tab>
     <Tab text="Lista Automação Financeiro">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView layoutX="112.0" layoutY="258.0" prefHeight="300.0" prefWidth="593.0">
+                    <columns>
+                      <TableColumn fx:id="colIdAutFin" prefWidth="59.0" text=" ID Aut." />
+                      <TableColumn fx:id="colAutFin" prefWidth="123.0" text="Aut. Financeiro" />
+                        <TableColumn fx:id="colSetorFin" prefWidth="75.0" text="Setor" />
+                        <TableColumn fx:id="colCategoriaFin" prefWidth="110.0" text="Categoria" />
+                        <TableColumn fx:id="colDescricaoFin" prefWidth="100.0" text="Descrição" />
+                        <TableColumn fx:id="colEstadoFin" prefWidth="75.0" text="Estado" />
+                    </columns>
+                  </TableView>
+                  <ComboBox fx:id="cmbFiltrarEstadoFin" layoutX="487.0" layoutY="51.0" prefWidth="150.0" promptText="Filtrar por estado" />
+                  <ComboBox fx:id="cmbFiltrarSetorFin" layoutX="147.0" layoutY="51.0" prefWidth="150.0" promptText="Filtrar por setor" />
+                  <TextField fx:id="txtFiltrarAutFin" layoutX="315.0" layoutY="140.0" promptText="Filtrar por Aut. FInanceiro" />
+                  <ComboBox fx:id="cmbFiltrarCategoriaFin" layoutX="315.0" layoutY="51.0" prefWidth="150.0" promptText="Filtrar por categoria" />
+                  <Button fx:id="btnFiltrarFin" layoutX="297.0" layoutY="202.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="82.0" text="Filtrar">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconFiltrar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnlimparFiltroFin" layoutX="408.0" layoutY="202.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Limpar Filtro">
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconRemover.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></AnchorPane>
       </content>
     </Tab>
       <Tab text="Atualizar Financeiro">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="28.0" layoutY="49.0" text="Nome Automação" />
+                  <Label layoutX="28.0" layoutY="135.0" text="Setor" />
+                  <Label layoutX="275.0" layoutY="49.0" text="Descrição" />
+                  <Label layoutX="275.0" layoutY="135.0" text="Categoria" />
+                  <Label layoutX="24.0" layoutY="214.0" text="Estado" />
+                  <TextField fx:id="txtNomeFin" layoutX="28.0" layoutY="66.0" />
+                  <TextArea fx:id="txtDescricaoFin" layoutX="273.0" layoutY="66.0" prefHeight="30.0" prefWidth="136.0" />
+                  <ComboBox fx:id="cmbSetorFin" layoutX="28.0" layoutY="152.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbEstadoFin" layoutX="24.0" layoutY="237.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbCategoriaFin" layoutX="275.0" layoutY="152.0" prefWidth="150.0" />
+               </children></AnchorPane>
         </content>
       </Tab>
   </tabs>
