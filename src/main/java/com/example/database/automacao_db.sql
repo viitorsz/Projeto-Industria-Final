@@ -33,6 +33,14 @@ CREATE TABLE automacaoQA (
     porcentagem VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE automacaoProducao (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+    nome_produto VARCHAR(100) NOT NULL,
+    preco VARCHAR(100) NOT NULL,
+    lote INT NOT NULL CHECK (lote >= 0),
+    codigo INT NOT NULL CHECK (codigo >= 0)
+);
+
 INSERT INTO automacaorh (nome_automacao, responsavel, categoria, descricao, operacao, setor, localizacao, situacao, prioridade) VALUES
 ('Automação de Folha de Ponto', 'João Silva', 'RH', 'Automatiza o registro de horas trabalhadas', 'Registro', 'Recursos Humanos', 'Sede', 'Ativo', 'Alta'),
 ('Relatório de Desempenho', 'Maria Oliveira', 'RH', 'Gera relatórios de desempenho dos colaboradores', 'Geração de Relatórios', 'Recursos Humanos', 'Sede', 'Ativo', 'Média'),
@@ -90,4 +98,16 @@ INSERT INTO automacaoQA (produto, selo, descricao, caso, chegada, saida, porcent
 (81, 'E', 'Máquina caça-níquel com jackpot', 'Em manutenção', '10/01/2025', '10/01/2026', '55.5%'),
 (90, 'A+', 'Máquina caça-níquel temática de frutas', 'Disponível', '08/03/2025', '08/03/2026', '97.8%'),
 (100, 'C', 'Máquina caça-níquel com bônus surpresa', 'Em operação', '22/02/2025', '22/02/2026', '74.4%');
+
+INSERT INTO automacaoProducao (nome_produto, preco, lote, codigo) VALUES 
+('Jackpot Frenzy', 'R$1.000,00', 15, 10001),
+('Vegas Reels', 'R$750,00', 20, 10002),
+('Golden Spin', 'R$900,00', 25, 10003),
+('Lucky Sevens', 'R$1.100,00', 30, 10004),
+('Spin the Wheel', 'R$650,00', 18, 10005),
+('Diamond Rush', 'R$1.250,00', 12, 10006),
+('Royal Flush', 'R$1.500,00', 10, 10007),
+('Mystic Gems', 'R$850,00', 14, 10008),
+('Mega Win', 'R$1.050,00', 22, 10009),
+('Fortune Wheel', 'R$1.200,00', 8, 10010);
 
