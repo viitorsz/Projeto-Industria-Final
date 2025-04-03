@@ -114,10 +114,10 @@ public class ControllerAutomacaoRH {
         
 
 
-        cmbAtuCategoria.getItems().addAll( "Recrutamento e Seleção", "Folha De Pagamento", "Treinamento e Desenvolvimento", "Comunicação Interna");
+        cmbAtuCategoria.getItems().addAll( "Recrutamento e Seleção", "Treinamento e Desenvolvimento", "Comunicação Interna");
         cmbAtuPrioridade.getItems().addAll("Baixa","Média","Alta");
         cmbAtuSituacao.getItems().addAll("ativo", "inativo");
-        cmbCategoria.getItems().addAll( "Recrutamento e Seleção", "Folha De Pagamento", "Treinamento e Desenvolvimento", "Comunicação Interna");
+        cmbCategoria.getItems().addAll( "Recrutamento e Seleção", "Treinamento e Desenvolvimento", "Comunicação Interna");
         cmbPrioridade.getItems().addAll("Baixa","Média","Alta");
         cmbSituacao.getItems().addAll("ativo", "inativo");
 
