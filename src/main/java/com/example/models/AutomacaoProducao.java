@@ -4,12 +4,11 @@ public class AutomacaoProducao {
 
     private int id;
     private String nome_produto;
-    private int preco;
+    private String preco;
     private int lote;
     private int codigo;
 
-    // Construtor
-    public AutomacaoProducao(int id, String nome_produto, int preco, int lote, int codigo) {
+    public AutomacaoProducao(int id, String nome_produto, String preco, int lote, int codigo) {
         this.id = id;
         this.nome_produto = nome_produto;
         this.preco = preco;
@@ -17,7 +16,7 @@ public class AutomacaoProducao {
         this.codigo = codigo;
     }
 
-    // Getters e Setters
+    public AutomacaoProducao() {}
 
     public int getId() {
         return id;
@@ -35,11 +34,11 @@ public class AutomacaoProducao {
         this.nome_produto = nome_produto;
     }
 
-    public int getPreco() {
+    public String getPreco() {
         return preco;
     }
 
-    public void setPreco(int preco) {
+    public void setPreco(String preco) {
         this.preco = preco;
     }
 
@@ -59,4 +58,3 @@ public class AutomacaoProducao {
         this.codigo = codigo;
     }
 }
-

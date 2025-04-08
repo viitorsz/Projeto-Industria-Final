@@ -49,10 +49,10 @@
                         <TableColumn fx:id="colCodigo" prefWidth="207.0" text="Código" />
                     </columns>
                   </TableView>
-                  <TextField fx:id="filtroProduto" layoutX="719.0" layoutY="73.0" text="Filtrar por Produto" />
-                  <TextField fx:id="filtroPreco" layoutX="963.0" layoutY="73.0" text="Filtrar por Preço" />
-                  <TextField fx:id="filtroLote" layoutX="719.0" layoutY="173.0" text="Filtrar por Lote" />
-                  <TextField fx:id="filtroCodigo" layoutX="963.0" layoutY="173.0" text="Filtrar por Código" />
+                  <TextField fx:id="filtroProduto" layoutX="719.0" layoutY="73.0" promptText="Filtrar por Produto" />
+                  <TextField fx:id="filtroPreco" layoutX="963.0" layoutY="73.0" promptText="Filtrar por Preço" />
+                  <TextField fx:id="filtroLote" layoutX="719.0" layoutY="173.0" promptText="Filtrar por Lote" />
+                  <TextField fx:id="filtroCodigo" layoutX="963.0" layoutY="173.0" promptText="Filtrar por Código" />
                   <Button layoutX="778.0" layoutY="302.0" mnemonicParsing="false" onAction="#filtrarProducao" text="Filtrar">
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
