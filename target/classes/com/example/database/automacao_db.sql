@@ -41,6 +41,15 @@ CREATE TABLE automacaoProducao (
     codigo INT NOT NULL CHECK (codigo >= 0)
 );
 
+CREATE TABLE automacaoFinanceiro(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome_automacaoFin varchar(100) not null,
+    descricaoFin VARCHAR(100) not null, 
+    setorFin varchar(100) not null, 
+    categoriaFin VARCHAR(100) not null,
+    estadoFin varchar(100) not null
+);
+
 INSERT INTO automacaorh (nome_automacao, responsavel, categoria, descricao, operacao, setor, localizacao, situacao, prioridade) VALUES
 ('Automação de Folha de Ponto', 'João Silva', 'RH', 'Automatiza o registro de horas trabalhadas', 'Registro', 'Recursos Humanos', 'Sede', 'Ativo', 'Alta'),
 ('Relatório de Desempenho', 'Maria Oliveira', 'RH', 'Gera relatórios de desempenho dos colaboradores', 'Geração de Relatórios', 'Recursos Humanos', 'Sede', 'Ativo', 'Média'),
