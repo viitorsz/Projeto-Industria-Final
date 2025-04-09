@@ -45,14 +45,14 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TableView fx:id="tablesAutomacaoFinanceiro" layoutX="112.0" layoutY="263.0" prefHeight="300.0" prefWidth="593.0">
+                  <TableView fx:id="tablesAutomacaoFinanceiro" layoutX="86.0" layoutY="263.0" prefHeight="319.0" prefWidth="646.0">
                     <columns>
                       <TableColumn fx:id="colIdAutFin" prefWidth="59.0" text=" ID Aut." />
-                      <TableColumn fx:id="colAutFin" prefWidth="123.0" text="Aut. Financeiro" />
+                      <TableColumn fx:id="colAutFin" prefWidth="143.0" text="Aut. Financeiro" />
                         <TableColumn fx:id="colSetorFin" prefWidth="75.0" text="Setor" />
-                        <TableColumn fx:id="colCategoriaFin" prefWidth="110.0" text="Categoria" />
-                        <TableColumn fx:id="colDescricaoFin" prefWidth="100.0" text="Descrição" />
-                        <TableColumn fx:id="colEstadoFin" prefWidth="75.0" text="Estado" />
+                        <TableColumn fx:id="colCategoriaFin" prefWidth="136.0" text="Categoria" />
+                        <TableColumn fx:id="colDescricaoFin" prefWidth="142.0" text="Descrição" />
+                        <TableColumn fx:id="colEstadoFin" prefWidth="90.0" text="Estado" />
                     </columns>
                   </TableView>
                   <ComboBox fx:id="cmbFiltrarEstadoFin" layoutX="487.0" layoutY="51.0" prefWidth="150.0" promptText="Filtrar por estado" />
