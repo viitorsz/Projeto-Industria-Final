@@ -21,7 +21,7 @@ public class ControllerAutomacaoProducao {
     @FXML private TableView<AutomacaoProducao> tablesAutomacaoProducao;
     @FXML private TableColumn<AutomacaoProducao, String> colProduto;
     @FXML private TableColumn<AutomacaoProducao, Integer> colPreco, colLote, colCodigo;
-    @FXML private TabPane tabPane;
+    @FXML private TabPane tabPaneAutomacaoProducao;
     @FXML private Tab tabAtualizar;
 
     private void mostrarAlerta(String mensagem, AlertType tipo) {
@@ -47,7 +47,7 @@ public class ControllerAutomacaoProducao {
                 txtAtualizarPreco.setText(selecionado.getPreco());
                 txtAtualizarLote.setText(String.valueOf(selecionado.getLote()));
                 txtAtualizarCodigo.setText(String.valueOf(selecionado.getCodigo()));
-                tabPane.getSelectionModel().select(tabAtualizar);
+                tabPaneAutomacaoProducao.getSelectionModel().select(tabAtualizar);
             }
         });
     }

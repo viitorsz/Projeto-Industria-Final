@@ -72,16 +72,44 @@ public class ControllerAutomacaoFinanceiro{
         colCategoriaFin.setCellValueFactory(new PropertyValueFactory<>("Categoria"));
         colEstadoFin.setCellValueFactory(new PropertyValueFactory<>("Estado"));
         colDescricaoFin.setCellValueFactory(new PropertyValueFactory<>("Descrição"));
-        listarDados();
 
-        tablesAutomacaoFinanceiro.setOnMouseClicked((MouseEvent event) ->{
-            if (event.getClickCount() == 2 && tablesAutomacaoFinanceiro.getSelectionModel().getSelectedItem() != null){
-                AutomacaoFinanceiro selecionado = tablesAutomacaoFinanceiro.getSelectionModel().getSelectedItem();
-                txtAtuNomeFin.setText(selecionado.getNome_AutomacaoFin());
+        cmbAtuCategoriaFin.getItems().addAll("Folha de pagamento", "", "");
+
+    
+
+        tablesAutomacaoFinanceiro.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getClickCount() > 1){
+                PreencherCamposAtualizacaoFin();
+                tabPaneAutomacaoFinanceiro.getSelectionModel().select(tabAtualizarFinanceiro);
             }
-
         });
     }
+
+    public void PreencherCamposAtualizacaoFin(){
+        AutomacaoFinanceiro AutomacaoFinanceiro = tablesAutomacaoFinanceiro.getSelectionModel().getSelectedItem();
+    }
+
+
+public void CriarAutFin(){
+
+
+}
+
+public void FiltrarFin(){
+
+}
+
+public void LimparFiltroFin(){
+
+}
+
+
+
+
+
+
+
+
 
 
 
