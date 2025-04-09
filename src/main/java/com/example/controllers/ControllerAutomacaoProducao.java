@@ -4,7 +4,6 @@ import com.example.database.Database;
 import com.example.models.AutomacaoProducao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
@@ -22,7 +21,7 @@ public class ControllerAutomacaoProducao {
     @FXML private TableColumn<AutomacaoProducao, String> colProduto;
     @FXML private TableColumn<AutomacaoProducao, Integer> colPreco, colLote, colCodigo;
     @FXML private TabPane tabPaneAutomacaoProducao;
-    @FXML private Tab tabAtualizar;
+    @FXML private Tab tabAtualizarProducao;
 
     private void mostrarAlerta(String mensagem, AlertType tipo) {
         Alert alert = new Alert(tipo);
@@ -41,15 +40,22 @@ public class ControllerAutomacaoProducao {
         listarDados();
 
         tablesAutomacaoProducao.setOnMouseClicked((MouseEvent event) -> {
-            if (event.getClickCount() == 2 && tablesAutomacaoProducao.getSelectionModel().getSelectedItem() != null) {
-                AutomacaoProducao selecionado = tablesAutomacaoProducao.getSelectionModel().getSelectedItem();
-                txtAtualizarProduto.setText(selecionado.getNome_produto());
-                txtAtualizarPreco.setText(selecionado.getPreco());
-                txtAtualizarLote.setText(String.valueOf(selecionado.getLote()));
-                txtAtualizarCodigo.setText(String.valueOf(selecionado.getCodigo()));
-                tabPaneAutomacaoProducao.getSelectionModel().select(tabAtualizar);
+            if (event.getClickCount() > 1) {
+                preencherCamposAtualizacao();
             }
         });
+    }
+
+    private void preencherCamposAtualizacao() {
+        AutomacaoProducao automacaoSelecionada = tablesAutomacaoProducao.getSelectionModel().getSelectedItem();
+        if (automacaoSelecionada != null) {
+            txtAtualizarProduto.setText(automacaoSelecionada.getNome_produto());
+            txtAtualizarPreco.setText(automacaoSelecionada.getPreco());
+            txtAtualizarLote.setText(String.valueOf(automacaoSelecionada.getLote()));
+            txtAtualizarCodigo.setText(String.valueOf(automacaoSelecionada.getCodigo()));
+
+            tabPaneAutomacaoProducao.getSelectionModel().select(tabAtualizarProducao);
+        }
     }
 
     private void listarDados() {
@@ -72,7 +78,7 @@ public class ControllerAutomacaoProducao {
     }
 
     @FXML
-    public void saveProducao(@SuppressWarnings("exports") ActionEvent event) {
+    public void saveProducao() {
         String sql = "INSERT INTO automacaoProducao (nome_produto, preco, lote, codigo) VALUES (?, ?, ?, ?)";
         try (Connection conn = Database.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, txtProduto.getText());
@@ -96,7 +102,7 @@ public class ControllerAutomacaoProducao {
     }
 
     @FXML
-    public void filtrarProducao(@SuppressWarnings("exports") ActionEvent event) {
+    public void filtrarProducao() {
         ObservableList<AutomacaoProducao> dados = FXCollections.observableArrayList();
         StringBuilder sql = new StringBuilder("SELECT * FROM automacaoProducao WHERE 1=1");
 
@@ -126,7 +132,7 @@ public class ControllerAutomacaoProducao {
     }
 
     @FXML
-    public void limparProducao(@SuppressWarnings("exports") ActionEvent event) {
+    public void limparProducao() {
         filtroProduto.clear();
         filtroPreco.clear();
         filtroLote.clear();
@@ -135,7 +141,7 @@ public class ControllerAutomacaoProducao {
     }
 
     @FXML
-    public void atualizarProducao(@SuppressWarnings("exports") ActionEvent event) {
+    public void atualizarProducao() {
         AutomacaoProducao selecionado = tablesAutomacaoProducao.getSelectionModel().getSelectedItem();
         if (selecionado == null) {
             mostrarAlerta("Selecione um item para atualizar.", AlertType.WARNING);
@@ -155,7 +161,14 @@ public class ControllerAutomacaoProducao {
                 stmt.setInt(5, selecionado.getId());
                 stmt.executeUpdate();
                 mostrarAlerta("Produto atualizado com sucesso!", AlertType.INFORMATION);
+
+                txtAtualizarProduto.clear();
+                txtAtualizarPreco.clear();
+                txtAtualizarLote.clear();
+                txtAtualizarCodigo.clear();
+
                 listarDados();
+                
             } catch (SQLException e) {
                 mostrarAlerta("Erro ao atualizar: " + e.getMessage(), AlertType.ERROR);
             }
@@ -163,7 +176,7 @@ public class ControllerAutomacaoProducao {
     }
 
     @FXML
-    public void DeletarProducao(@SuppressWarnings("exports") ActionEvent event) {
+    public void DeletarProducao() {
         AutomacaoProducao selecionado = tablesAutomacaoProducao.getSelectionModel().getSelectedItem();
         if (selecionado == null) {
             mostrarAlerta("Selecione um item para deletar.", AlertType.WARNING);
@@ -179,6 +192,12 @@ public class ControllerAutomacaoProducao {
                 stmt.setInt(1, selecionado.getId());
                 stmt.executeUpdate();
                 mostrarAlerta("Produto deletado com sucesso!", AlertType.INFORMATION);
+
+                txtAtualizarProduto.clear();
+                txtAtualizarPreco.clear();
+                txtAtualizarLote.clear();
+                txtAtualizarCodigo.clear();
+
                 listarDados();
             } catch (SQLException e) {
                 mostrarAlerta("Erro ao deletar: " + e.getMessage(), AlertType.ERROR);

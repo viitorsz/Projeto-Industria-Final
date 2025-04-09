@@ -119,4 +119,3 @@ INSERT INTO automacaoProducao (nome_produto, preco, lote, codigo) VALUES
 ('Mystic Gems', 'R$850,00', 14, 10008),
 ('Mega Win', 'R$1.050,00', 22, 10009),
 ('Fortune Wheel', 'R$1.200,00', 8, 10010);
-
