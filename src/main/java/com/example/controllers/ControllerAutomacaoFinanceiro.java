@@ -77,6 +77,10 @@ public class ControllerAutomacaoFinanceiro{
         cmbCategoriaFin.getItems().addAll("Folha de pagamento", "Prestação de Serviços", "Compras e Vendas");
         cmbEstadoFin.getItems().addAll("Em Andamento", "Finalizado");
 
+        cmbAtuSetorFin.getItems().addAll("RH", "Estoque", "Qualidade", "Produção", "Financeiro");
+        cmbAtuCategoriaFin.getItems().addAll("Folha de pagamento", "Prestação de Serviços", "Compras e Vendas");
+        cmbAtuEstadoFin.getItems().addAll("Em Andamento", "Finalizado");
+        
         carregarFinanceiro();
 
         tablesAutomacaoFinanceiro.setOnMouseClicked((MouseEvent event) -> {
@@ -120,6 +124,12 @@ public void CriarAutFin(){
    stmt.executeUpdate();
 
    carregarFinanceiro();
+
+   txtNomeFin.clear();
+   txtDescricaoFin.clear();
+   cmbSetorFin.getSelectionModel().clearSelection();
+   cmbCategoriaFin.getSelectionModel().clearSelection();
+   cmbEstadoFin.getSelectionModel().clearSelection();
 
    mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Item criado com sucesso!");
 } catch (SQLException | NumberFormatException e) {
@@ -230,6 +240,12 @@ public void atualizarFin() {
             carregarFinanceiro(); // Atualiza a tabela após a atualização
             tablesAutomacaoFinanceiro.refresh(); // Refresh the table view
 
+            txtAtuNomeFin.clear();
+            txtAtuDescricaoFin.clear();
+            cmbAtuSetorFin.setValue(null);
+            cmbAtuCategoriaFin.setValue(null);
+            cmbAtuEstadoFin.setValue(null);
+
             // Inform the user that the update was successful
             mostrarAlerta(Alert.AlertType.INFORMATION, "Sucesso", "Automação atualizada com sucesso!");
 
@@ -258,9 +274,9 @@ public void deleteFin() {
             
             txtAtuNomeFin.clear();            
             txtAtuDescricaoFin.clear();
-            cmbAtuSetorFin.getSelectionModel().clearSelection();
-            cmbAtuCategoriaFin.getSelectionModel().clearSelection(); 
-            cmbAtuEstadoFin.getSelectionModel().clearSelection();
+            cmbAtuSetorFin.setValue(null);
+            cmbAtuCategoriaFin.setValue(null);
+            cmbAtuEstadoFin.setValue(null);
             
             
             carregarFinanceiro(); // Atualiza a tabela após a exclusão
@@ -274,6 +290,7 @@ public void deleteFin() {
         mostrarAlerta(Alert.AlertType.WARNING, "Atenção", "Selecione uma automação para excluir!");
     }
 }
-
 }
+
+
 
