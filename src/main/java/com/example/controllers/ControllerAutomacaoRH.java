@@ -249,14 +249,6 @@ private void limparCadastro() {
         tablesAutomacaoRH.setItems(listaAutomacaoRH);
     }
 
-
-
-
-
-
-
-
-
     @FXML
 public void deleteArh() {
     AutomacaoRH automacaoSelecionada = tablesAutomacaoRH.getSelectionModel().getSelectedItem();
