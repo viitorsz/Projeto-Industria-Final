@@ -3,7 +3,6 @@ package com.example.controllers;
 import com.example.database.Database;
 import com.example.models.AutomacaoEst;
 import com.example.models.AutomacaoFinanceiro;
-import com.example.models.AutomacaoProducao;
 import com.example.models.AutomacaoRH;
 
 import javafx.collections.FXCollections;
@@ -67,15 +66,18 @@ public class ControllerAutomacaoFinanceiro{
 
     @FXML
     public void initialize(){
-        colAutFin.setCellValueFactory(new PropertyValueFactory<>("Aut. Financeiro"));
-        colSetorFin.setCellValueFactory(new PropertyValueFactory<>("Setor"));
-        colCategoriaFin.setCellValueFactory(new PropertyValueFactory<>("Categoria"));
-        colEstadoFin.setCellValueFactory(new PropertyValueFactory<>("Estado"));
-        colDescricaoFin.setCellValueFactory(new PropertyValueFactory<>("Descrição"));
+        colIdAutFin.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colAutFin.setCellValueFactory(new PropertyValueFactory<>("nome_AutomacaoFin"));
+        colSetorFin.setCellValueFactory(new PropertyValueFactory<>("setorFin"));
+        colCategoriaFin.setCellValueFactory(new PropertyValueFactory<>("categoriaFin"));
+        colDescricaoFin.setCellValueFactory(new PropertyValueFactory<>("descricaoFin"));
+        colEstadoFin.setCellValueFactory(new PropertyValueFactory<>("estadoFin"));        
 
-        cmbAtuCategoriaFin.getItems().addAll("Folha de pagamento", "", "");
+        cmbSetorFin.getItems().addAll("RH", "Estoque", "Qualidade", "Produção", "Financeiro");
+        cmbCategoriaFin.getItems().addAll("Folha de pagamento", "Prestação de Serviços", "Compras e Vendas");
+        cmbEstadoFin.getItems().addAll("Em Andamento", "Finalizado");
 
-    
+        carregarFinanceiro();
 
         tablesAutomacaoFinanceiro.setOnMouseClicked((MouseEvent event) -> {
             if (event.getClickCount() > 1){
@@ -119,44 +121,55 @@ private void carregarFinanceiro() {
 
             while (rs.next()) {
                 listaAutomacaoFinanceiros.add(new AutomacaoFinanceiro(rs.getInt("id"), rs.getString("nome_automacaoFin"), rs.getString("descricaoFin"), rs.getString("setorFin"), rs.getString("categoriaFin"), rs.getString("estadoFin")));
-            }
-            tablesAutomacaoFinanceiro.setItems(listaAutomacaoFinanceiros);
+            }            
         }catch (SQLException e) {
             e.printStackTrace();
         }
-        
+        tablesAutomacaoFinanceiro.setItems(listaAutomacaoFinanceiros);
     }
 public void FiltrarFin(){
-ObservableList<AutomacaoProducao> dados = FXCollections.observableArrayList();
-        StringBuilder sql = new StringBuilder("SELECT * FROM automacaoProducao WHERE 1=1");
+    ObservableList<AutomacaoFinanceiro> listaFiltrada = FXCollections.observableArrayList();
 
-        if (!txtAtuDescricaoFin.getText().isEmpty())
-            sql.append(" AND nome_produto LIKE '%").append(filtroProduto.getText()).append("%'");
-        if (!filtroPreco.getText().isEmpty())
-            sql.append(" AND preco LIKE '%").append(filtroPreco.getText()).append("%'");
-        if (!filtroLote.getText().isEmpty())
-            sql.append(" AND lote = ").append(filtroLote.getText());
-        if (!filtroCodigo.getText().isEmpty())
-            sql.append(" AND codigo = ").append(filtroCodigo.getText());
+    String filtroTexto = txtFiltrarAutFin.getText().toLowerCase();
+    String setorSelecionado = cmbfiltrarSetorFin.getValue();
+    String categoriaSelecionada = cmbfiltrarCategoriaFin.getValue();
+    String estadoSelecionado = cmbfiltrarEstadoFin.getValue();
 
-        try (Connection conn = Database.getConnection(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql.toString())) {
-            while (rs.next()) {
-                dados.add(new AutomacaoProducao(
-                    rs.getInt("id"),
-                    rs.getString("nome_produto"),
-                    rs.getString("preco"),
-                    rs.getInt("lote"),
-                    rs.getInt("codigo")
-                ));
-            }
-        } catch (SQLException e) {
-            mostrarAlerta("Erro ao filtrar: " + e.getMessage(), AlertType.ERROR);
+    for (AutomacaoFinanceiro item : listaFiltrada) {
+        boolean corresponde = true;
+
+        if (filtroTexto != null && !filtroTexto.isEmpty() && 
+            !item.getNome_AutomacaoFin().toLowerCase().contains(filtroTexto)) {
+            corresponde = false;
         }
-        tablesAutomacaoProducao.setItems(dados);
+        if (setorSelecionado != null && !setorSelecionado.isEmpty() && 
+            !item.getSetorFin().equals(setorSelecionado)) {
+            corresponde = false;
+        }
+        if (categoriaSelecionada != null && !categoriaSelecionada.isEmpty() &&
+            !item.getCategoriaFin().equals(categoriaSelecionada)) {
+            corresponde = false;
+        }
+        if (estadoSelecionado != null && !estadoSelecionado.isEmpty() &&
+            !item.getEstadoFin().equals(estadoSelecionado)) {
+            corresponde = false;
+        }
+
+        if (corresponde) {
+            listaFiltrada.add(item);
+        }
     }
 
-public void LimparFiltroFin(){
+    tablesAutomacaoFinanceiro.setItems(listaFiltrada);
+}
 
+
+
+public void LimparFiltroFin(){
+txtFiltrarAutFin.clear();
+cmbfiltrarSetorFin.getSelectionModel().clearSelection();
+cmbfiltrarCategoriaFin.getSelectionModel().clearSelection();
+cmbfiltrarEstadoFin.getSelectionModel().clearSelection();
 }
 
 
