@@ -10,6 +10,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <TabPane fx:id="tabPaneAutomacaoProducao" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="1175.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ControllerAutomacaoProducao">
    <tabs>
@@ -17,15 +18,27 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="628.0" prefWidth="1206.0">
                <children>
-                  <Label layoutX="36.0" layoutY="46.0" text="Nome do produto" />
-                  <Label layoutX="36.0" layoutY="158.0" text="Preço" />
-                  <Label layoutX="37.0" layoutY="289.0" text="Lote" />
-                  <Label layoutX="35.0" layoutY="422.0" text="Código" />
+                  <Label layoutX="37.0" layoutY="36.0" text="Nome do produto">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="242.0" layoutY="36.0" text="Preço">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="35.0" layoutY="104.0" text="Lote">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="242.0" layoutY="104.0" text="Código">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
                   <TextField fx:id="txtProduto" layoutX="35.0" layoutY="63.0" />
-                  <TextField fx:id="txtPreco" layoutX="35.0" layoutY="175.0" />
-                  <TextField fx:id="txtLote" layoutX="37.0" layoutY="306.0" />
-                  <TextField fx:id="txtCodigo" layoutX="35.0" layoutY="439.0" />
-                  <Button layoutX="197.0" layoutY="528.0" mnemonicParsing="false" onAction="#saveProducao" prefHeight="35.0" prefWidth="89.0" text="Criar">
+                  <TextField fx:id="txtPreco" layoutX="242.0" layoutY="63.0" />
+                  <TextField fx:id="txtLote" layoutX="35.0" layoutY="132.0" />
+                  <TextField fx:id="txtCodigo" layoutX="242.0" layoutY="132.0" />
+                  <Button layoutX="171.0" layoutY="199.0" mnemonicParsing="false" onAction="#saveProducao" prefHeight="35.0" prefWidth="89.0" text="Criar">
                      <graphic>
                         <ImageView fitHeight="27.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -78,15 +91,27 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="68.0" layoutY="142.0" text="Nome do produto" />
-                  <Label layoutX="323.0" layoutY="142.0" text="Preço" />
-                  <Label layoutX="68.0" layoutY="267.0" text="Lote" />
-                  <Label layoutX="318.0" layoutY="267.0" text="Código" />
-                  <TextField fx:id="txtAtualizarProduto" layoutX="67.0" layoutY="162.0" />
-                  <TextField fx:id="txtAtualizarLote" layoutX="68.0" layoutY="284.0" />
-                  <TextField fx:id="txtAtualizarPreco" layoutX="318.0" layoutY="162.0" />
-                  <TextField fx:id="txtAtualizarCodigo" layoutX="318.0" layoutY="284.0" />
-                  <Button layoutX="114.0" layoutY="358.0" mnemonicParsing="false" onAction="#atualizarProducao" text="Atualizar">
+                  <Label layoutX="39.0" layoutY="44.0" text="Nome do produto">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="266.0" layoutY="44.0" text="Preço">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="40.0" layoutY="111.0" text="Lote">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="266.0" layoutY="111.0" text="Código">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="txtAtualizarProduto" layoutX="40.0" layoutY="70.0" />
+                  <TextField fx:id="txtAtualizarLote" layoutX="40.0" layoutY="131.0" />
+                  <TextField fx:id="txtAtualizarPreco" layoutX="266.0" layoutY="70.0" />
+                  <TextField fx:id="txtAtualizarCodigo" layoutX="266.0" layoutY="131.0" />
+                  <Button layoutX="101.0" layoutY="221.0" mnemonicParsing="false" onAction="#atualizarProducao" text="Atualizar">
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -95,7 +120,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="318.0" layoutY="357.0" mnemonicParsing="false" onAction="#DeletarProducao" text="Deletar Produto">
+                  <Button layoutX="270.0" layoutY="221.0" mnemonicParsing="false" onAction="#DeletarProducao" text="Deletar Produto">
                      <graphic>
                         <ImageView fitHeight="36.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                            <image>

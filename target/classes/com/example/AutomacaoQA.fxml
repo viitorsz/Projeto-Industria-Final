@@ -20,48 +20,48 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="32.0" layoutY="147.0" text="Selo de Qualidade">
+                  <Label layoutX="31.0" layoutY="99.0" text="Selo de Qualidade">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                   <Label layoutX="31.0" layoutY="37.0" text="Produto">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="32.0" layoutY="248.0" text="Descrição">
+                  <Label layoutX="31.0" layoutY="157.0" text="Descrição">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="326.0" layoutY="37.0" text="Caso">
+                  <Label layoutX="231.0" layoutY="37.0" text="Caso">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="324.0" layoutY="147.0" text="Chegada">
+                  <Label layoutX="231.0" layoutY="99.0" text="Chegada">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="326.0" layoutY="248.0" text="Saida">
+                  <Label layoutX="236.0" layoutY="157.0" text="Saida">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="326.0" layoutY="341.0" text="Porcentagem de Qualidade">
+                  <Label layoutX="30.0" layoutY="240.0" text="Porcentagem de Qualidade">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtProduto" layoutX="31.0" layoutY="64.0" />
-                  <TextField fx:id="txtSelo" layoutX="31.0" layoutY="174.0" />
-                  <TextArea fx:id="txtDescricaoQA" layoutX="31.0" layoutY="275.0" prefHeight="6.0" prefWidth="200.0" />
-                  <TextField fx:id="txtChegada" layoutX="324.0" layoutY="174.0" />
-                  <TextField fx:id="txtSaida" layoutX="324.0" layoutY="275.0" />
-                  <TextField fx:id="txtPorcentagem" layoutX="324.0" layoutY="368.0" prefHeight="25.0" prefWidth="106.0" />
-                  <Button layoutX="238.0" layoutY="474.0" mnemonicParsing="false" onAction="#gerarQA" prefHeight="38.0" prefWidth="94.0" text="Criar">
+                  <TextField fx:id="txtProduto" layoutX="31.0" layoutY="57.0" />
+                  <TextField fx:id="txtSelo" layoutX="31.0" layoutY="126.0" />
+                  <TextArea fx:id="txtDescricaoQA" layoutX="29.0" layoutY="180.0" prefHeight="38.0" prefWidth="154.0" />
+                  <TextField fx:id="txtChegada" layoutX="232.0" layoutY="126.0" />
+                  <TextField fx:id="txtSaida" layoutX="232.0" layoutY="180.0" />
+                  <TextField fx:id="txtPorcentagem" layoutX="29.0" layoutY="268.0" prefHeight="25.0" prefWidth="85.0" />
+                  <Button layoutX="191.0" layoutY="314.0" mnemonicParsing="false" onAction="#gerarQA" prefHeight="38.0" prefWidth="94.0" text="Criar">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -70,7 +70,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <ComboBox fx:id="cmbCaso" layoutX="324.0" layoutY="64.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbCaso" layoutX="231.0" layoutY="57.0" prefWidth="150.0" />
                </children></AnchorPane>
         </content>
       </Tab>
@@ -119,47 +119,47 @@
                <children>
                   <Label layoutX="25.0" layoutY="29.0" text="Produto">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="25.0" layoutY="181.0" text="Selo de Qualidade">
+                  <Label layoutX="20.0" layoutY="96.0" text="Selo de Qualidade">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                   <Label layoutX="249.0" layoutY="29.0" text="Caso">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="249.0" layoutY="181.0" text="Chegada">
+                  <Label layoutX="245.0" layoutY="96.0" text="Chegada">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="25.0" layoutY="327.0" text="Descrição">
+                  <Label layoutX="21.0" layoutY="153.0" text="Descrição">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="247.0" layoutY="274.0" text="Saida">
+                  <Label layoutX="247.0" layoutY="153.0" text="Saida">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="449.0" layoutY="29.0" text="Porcentagem de Qualidade">
+                  <Label layoutX="21.0" layoutY="218.0" text="Porcentagem de Qualidade">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Label>
                   <ComboBox fx:id="cmbAtualizarCaso" layoutX="245.0" layoutY="56.0" prefWidth="150.0" />
                   <TextField fx:id="txtAtualizarProduto" layoutX="24.0" layoutY="56.0" />
-                  <TextField fx:id="txtAtualizarSelo" layoutX="24.0" layoutY="208.0" />
-                  <TextField fx:id="txtAtualizarChegada" layoutX="246.0" layoutY="208.0" />
-                  <TextField fx:id="txtAtualizarSaida" layoutX="246.0" layoutY="302.0" />
-                  <TextField fx:id="txtAtualizarPorcentagem" layoutX="449.0" layoutY="56.0" />
-                  <TextArea fx:id="txtAtualizarDescricaoQA" layoutX="25.0" layoutY="354.0" prefHeight="5.0" prefWidth="200.0" />
-                  <Button layoutX="443.0" layoutY="253.0" mnemonicParsing="false" onAction="#atualizarQA" text="Atualizar">
+                  <TextField fx:id="txtAtualizarSelo" layoutX="24.0" layoutY="116.0" />
+                  <TextField fx:id="txtAtualizarChegada" layoutX="246.0" layoutY="116.0" />
+                  <TextField fx:id="txtAtualizarSaida" layoutX="246.0" layoutY="173.0" />
+                  <TextField fx:id="txtAtualizarPorcentagem" layoutX="24.0" layoutY="241.0" />
+                  <TextArea fx:id="txtAtualizarDescricaoQA" layoutX="24.0" layoutY="173.0" prefHeight="37.0" prefWidth="149.0" />
+                  <Button layoutX="116.0" layoutY="314.0" mnemonicParsing="false" onAction="#atualizarQA" text="Atualizar">
                      <graphic>
                         <ImageView fitHeight="39.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -168,7 +168,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="557.0" layoutY="253.0" mnemonicParsing="false" onAction="#DeletarQA" text="Deletar">
+                  <Button layoutX="253.0" layoutY="314.0" mnemonicParsing="false" onAction="#DeletarQA" text="Deletar">
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                            <image>
