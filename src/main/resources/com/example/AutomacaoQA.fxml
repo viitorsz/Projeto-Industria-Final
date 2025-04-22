@@ -16,7 +16,7 @@
 
 <TabPane fx:id="tabPaneAutomacaoQA" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="1352.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ControllerAutomacaoQA">
    <tabs>
-      <Tab fx:id="tabAutomacaoQA" text="Qualidade">
+      <Tab fx:id="tabAutomacaoQA" text="Cadastrar Qualidade">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -65,7 +65,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@iconCriar.png" />
+                              <Image url="@iconCadastro.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -73,6 +73,13 @@
                   <ComboBox fx:id="cmbCaso" layoutX="231.0" layoutY="57.0" prefWidth="150.0" />
                </children></AnchorPane>
         </content>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconCadastro.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Tab>
       <Tab fx:id="tabListarQA" text="Listar Qualidade">
         <content>
@@ -112,6 +119,13 @@
                   </Button>
                </children></AnchorPane>
         </content>
+         <graphic>
+            <ImageView fitHeight="80.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconVisualizar.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Tab>
       <Tab fx:id="tabAtualizarQA" text="Atualizar Qualidade">
         <content>
@@ -179,6 +193,13 @@
                   </Button>
                </children></AnchorPane>
         </content>
+         <graphic>
+            <ImageView fitHeight="85.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Atualizar.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Tab>
    </tabs>
 </TabPane>

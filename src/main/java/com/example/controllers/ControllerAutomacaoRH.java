@@ -43,6 +43,7 @@ public class ControllerAutomacaoRH {
     @FXML private TextField filtroResponsavelAut;
     @FXML private TextField filtroLocalizacaoAut;
     @FXML private TextField filtroOperacaoAut;
+    @FXML private ComboBox<String> cmbFiltrarSituacao;
     @FXML private Button btnLimparFiltro;
 
 
@@ -113,10 +114,10 @@ public class ControllerAutomacaoRH {
         colDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         
 
-
+        cmbFiltrarSituacao.getItems().addAll("1-ativo", "2-inativo");
         cmbAtuCategoria.getItems().addAll( "Recrutamento e Seleção", "Treinamento e Desenvolvimento", "Comunicação Interna");
         cmbAtuPrioridade.getItems().addAll("Baixa","Média","Alta");
-        cmbAtuSituacao.getItems().addAll("ativo", "inativo");
+        cmbAtuSituacao.getItems().addAll("1-ativo", "2-inativo");
         cmbCategoria.getItems().addAll( "Recrutamento e Seleção", "Treinamento e Desenvolvimento", "Comunicação Interna");
         cmbPrioridade.getItems().addAll("Baixa","Média","Alta");
         cmbSituacao.getItems().addAll("ativo", "inativo");
@@ -213,9 +214,13 @@ public void atualizarAutomacao() {
             if (!filtroLocalizacaoAut.getText().isEmpty() && !produto.getLocalizacao().toLowerCase().contains(filtroLocalizacaoAut.getText().toLowerCase())) {
                 return false;
             }
-            if (!filtroResponsavelAut.getText().isEmpty() && !produto.getLocalizacao().toLowerCase().contains(filtroResponsavelAut.getText().toLowerCase())) {
+            if (!filtroResponsavelAut.getText().isEmpty() && !produto.getResponsavel().toLowerCase().contains(filtroResponsavelAut.getText().toLowerCase())) {
                 return false;
             }
+            if (cmbFiltrarSituacao.getValue() != null && !cmbFiltrarSituacao.getValue().isEmpty() && !produto.getSituacao().toLowerCase().contains(cmbFiltrarSituacao.getValue().toLowerCase())) {
+                return false;
+            }
+         
             return true;
         });
 
@@ -229,6 +234,7 @@ public void atualizarAutomacao() {
         filtroSetorAut.clear();
         filtroLocalizacaoAut.clear();
         filtroOperacaoAut.clear();
+        cmbFiltrarSituacao.setValue(null);
         tablesAutomacaoRH.setItems(listaAutomacaoRH);
     }
 
