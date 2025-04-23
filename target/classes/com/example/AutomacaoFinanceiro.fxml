@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane fx:id="tabPaneAutomacaoFinanceiro" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="866.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ControllerAutomacaoFinanceiro">
+  <tabs>
+    <Tab fx:id="tabFinanceiro" text="Cadastrar Aut. Financeiro">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="28.0" layoutY="49.0" text="Nome Automação" />
+                  <Label layoutX="28.0" layoutY="135.0" text="Setor" />
+                  <Label layoutX="275.0" layoutY="49.0" text="Descrição" />
+                  <Label layoutX="275.0" layoutY="135.0" text="Categoria" />
+                  <Label layoutX="24.0" layoutY="214.0" text="Estado" />
+                  <TextField fx:id="txtNomeFin" layoutX="28.0" layoutY="66.0" />
+                  <TextArea fx:id="txtDescricaoFin" layoutX="273.0" layoutY="66.0" prefHeight="30.0" prefWidth="136.0" />
+                  <ComboBox fx:id="cmbSetorFin" layoutX="28.0" layoutY="152.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbEstadoFin" layoutX="24.0" layoutY="237.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbCategoriaFin" layoutX="275.0" layoutY="152.0" prefWidth="150.0" />
+                  <Button fx:id="btnCriarFin" layoutX="209.0" layoutY="316.0" mnemonicParsing="false" onAction="#CriarAutFin" prefHeight="42.0" prefWidth="88.0" text="Criar">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconCadastro.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></AnchorPane>
+      </content>
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconCadastro.png" />
+               </image>
+            </ImageView>
+         </graphic>
+    </Tab>
+    <Tab fx:id="tabListarFinanceiro" text="Lista Financeiro">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="592.0" prefWidth="816.0">
+               <children>
+                  <TableView fx:id="tablesAutomacaoFinanceiro" layoutX="44.0" layoutY="245.0" prefHeight="327.0" prefWidth="779.0">
+                    <columns>
+                      <TableColumn fx:id="colIdAutFin" prefWidth="52.0" text=" ID Aut." />
+                      <TableColumn fx:id="colAutFin" prefWidth="150.0" text="Aut. Financeiro" />
+                        <TableColumn fx:id="colSetorFin" prefWidth="75.0" text="Setor" />
+                        <TableColumn fx:id="colCategoriaFin" prefWidth="188.0" text="Categoria" />
+                        <TableColumn fx:id="colDescricaoFin" prefWidth="160.0" text="Descrição" />
+                        <TableColumn fx:id="colEstadoFin" prefWidth="158.0" text="Estado" />
+                    </columns>
+                  </TableView>
+                  <ComboBox fx:id="cmbFiltrarEstadoFin" layoutX="487.0" layoutY="51.0" prefWidth="150.0" promptText="Filtrar por estado" />
+                  <ComboBox fx:id="cmbFiltrarSetorFin" layoutX="147.0" layoutY="51.0" prefWidth="150.0" promptText="Filtrar por setor" />
+                  <TextField fx:id="txtFiltrarAutFin" layoutX="315.0" layoutY="140.0" promptText="Filtrar por Aut. FInanceiro" />
+                  <ComboBox fx:id="cmbFiltrarCategoriaFin" layoutX="315.0" layoutY="51.0" prefWidth="150.0" promptText="Filtrar por categoria" />
+                  <Button fx:id="btnFiltrarFin" layoutX="297.0" layoutY="202.0" mnemonicParsing="false" onAction="#FiltrarFin" prefHeight="29.0" prefWidth="82.0" text="Filtrar">
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconFiltrar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnlimparFiltroFin" layoutX="408.0" layoutY="202.0" mnemonicParsing="false" onAction="#LimparFiltroFin" prefHeight="25.0" prefWidth="112.0" text="Limpar Filtro">
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconRemover.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></AnchorPane>
+      </content>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconVisualizar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+    </Tab>
+      <Tab fx:id="tabAtualizarFinanceiro" text="Atualizar Financeiro">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="28.0" layoutY="49.0" text="Nome Automação" />
+                  <Label layoutX="28.0" layoutY="135.0" text="Setor" />
+                  <Label layoutX="275.0" layoutY="49.0" text="Descrição" />
+                  <Label layoutX="275.0" layoutY="135.0" text="Categoria" />
+                  <Label layoutX="24.0" layoutY="214.0" text="Estado" />
+                  <TextField fx:id="txtAtuNomeFin" layoutX="28.0" layoutY="66.0" />
+                  <TextArea fx:id="txtAtuDescricaoFin" layoutX="273.0" layoutY="66.0" prefHeight="30.0" prefWidth="136.0" />
+                  <ComboBox fx:id="cmbAtuSetorFin" layoutX="28.0" layoutY="152.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbAtuEstadoFin" layoutX="24.0" layoutY="237.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cmbAtuCategoriaFin" layoutX="275.0" layoutY="152.0" prefWidth="150.0" />
+                  <Button fx:id="btnAtuFin" layoutX="148.0" layoutY="332.0" mnemonicParsing="false" onAction="#atualizarFin" prefHeight="35.0" prefWidth="95.0" text="Atualizar">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Atualizar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnDeletarFin" layoutX="295.0" layoutY="332.0" mnemonicParsing="false" onAction="#deleteFin" prefHeight="36.0" prefWidth="93.0" text="Deletar">
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconRemover.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></AnchorPane>
+        </content>
+         <graphic>
+            <ImageView fitHeight="52.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Atualizar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Tab>
+  </tabs>
+</TabPane>
