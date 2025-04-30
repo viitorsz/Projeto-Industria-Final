@@ -51,7 +51,7 @@ public class ControllerAutomacaoEstoque {
     
 
     @FXML
-    private void criarEstoque() {
+    public void criarEstoque() {
         try (Connection conn = Database.getConnection();
              PreparedStatement stmt = conn.prepareStatement("INSERT INTO automacaoEst (material, quantidade, descricao, estado) VALUES (?, ?, ?, ?)")) {
 
@@ -71,7 +71,7 @@ public class ControllerAutomacaoEstoque {
     }
 
     @FXML
-    private void editarEstoque() {
+    public void editarEstoque() {
         AutomacaoEst itemSelecionado = tablesAutomacaoEstoque.getSelectionModel().getSelectedItem();
         if (itemSelecionado == null) {
             mostrarAlerta(Alert.AlertType.WARNING, "Atenção", "Selecione um item para editar.");
@@ -96,7 +96,7 @@ public class ControllerAutomacaoEstoque {
     }
 
     @FXML
-    private void DeletarEstoque() {
+    public void DeletarEstoque() {
         AutomacaoEst itemSelecionado = tablesAutomacaoEstoque.getSelectionModel().getSelectedItem();
         if (itemSelecionado != null) {
             try (Connection conn = Database.getConnection();
@@ -143,7 +143,7 @@ public class ControllerAutomacaoEstoque {
         });
     }
 
-    private void carregarEstoque() {
+    public void carregarEstoque() {
         ObservableList<AutomacaoEst> listaAutomacaoEst = FXCollections.observableArrayList();
         try (Connection conn = Database.getConnection();
              Statement stmt = conn.createStatement();
@@ -166,7 +166,7 @@ public class ControllerAutomacaoEstoque {
     }
 
     @FXML
-    private void filtrarTabela() {
+    public void filtrarTabela() {
         ObservableList<AutomacaoEst> itensFiltrados = FXCollections.observableArrayList();
 
         String textoMaterial = filtroMaterial.getText().toLowerCase();
@@ -199,7 +199,7 @@ public class ControllerAutomacaoEstoque {
         tablesAutomacaoEstoque.setItems(itensFiltrados.isEmpty() ? listaAutomacaoEst : itensFiltrados);
     }
 
-    private void limparEstoque() {
+    public void limparEstoque() {
         txtMaterial.clear();
         txtQuantidade.clear();
         txtDescricao.clear();
@@ -207,14 +207,14 @@ public class ControllerAutomacaoEstoque {
     }
 
     @FXML
-    private void limparFiltros() {
+    public void limparFiltros() {
         filtroMaterial.clear();
         filtroQuantidade.clear();
         cmbfiltroEstado.getSelectionModel().clearSelection();
         tablesAutomacaoEstoque.setItems(listaAutomacaoEst);
     }
 
-    private void preencherCamposAtualizacao() {
+    public void preencherCamposAtualizacao() {
         AutomacaoEst automacaoSelecionada = tablesAutomacaoEstoque.getSelectionModel().getSelectedItem();
         if (automacaoSelecionada != null) {
             txtAtualizarMaterial.setText(automacaoSelecionada.getMaterial());
@@ -252,7 +252,7 @@ public class ControllerAutomacaoEstoque {
         }
     }
 
-    private void mostrarAlerta(AlertType tipo, String titulo, String mensagem) {
+    public void mostrarAlerta(AlertType tipo, String titulo, String mensagem) {
         Platform.runLater(() -> {
             Alert alerta = new Alert(tipo);
             alerta.setTitle(titulo);

@@ -52,7 +52,7 @@ public class ControllerAutomacaoFinanceiro{
     @FXML private ComboBox<String> cmbFiltrarCategoriaFin;
     @FXML private ComboBox<String> cmbFiltrarEstadoFin;
    
-    private void mostrarAlerta(AlertType tipo, String titulo, String mensagem) {
+    public void mostrarAlerta(AlertType tipo, String titulo, String mensagem) {
         Alert alert = new Alert(tipo);
         alert.setTitle("Mensagem");
         alert.setHeaderText(null);
@@ -138,7 +138,7 @@ public void CriarAutFin(){
 
 }
 
-private void carregarFinanceiro() {
+public void carregarFinanceiro() {
         ObservableList<AutomacaoFinanceiro> listaAutomacaoFinanceiros = FXCollections.observableArrayList();
        try (Connection conn = Database.getConnection();
              Statement stmt = conn.createStatement();

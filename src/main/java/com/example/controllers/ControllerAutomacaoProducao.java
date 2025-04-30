@@ -23,7 +23,7 @@ public class ControllerAutomacaoProducao {
     @FXML private TabPane tabPaneAutomacaoProducao;
     @FXML private Tab tabAtualizarProducao;
 
-    private void mostrarAlerta(String mensagem, AlertType tipo) {
+    public void mostrarAlerta(String mensagem, AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle("Mensagem");
         alert.setHeaderText(null);
@@ -46,7 +46,7 @@ public class ControllerAutomacaoProducao {
         });
     }
 
-    private void preencherCamposAtualizacao() {
+    public void preencherCamposAtualizacao() {
         AutomacaoProducao automacaoSelecionada = tablesAutomacaoProducao.getSelectionModel().getSelectedItem();
         if (automacaoSelecionada != null) {
             txtAtualizarProduto.setText(automacaoSelecionada.getNome_produto());
@@ -58,7 +58,7 @@ public class ControllerAutomacaoProducao {
         }
     }
 
-    private void listarDados() {
+    public void listarDados() {
         ObservableList<AutomacaoProducao> dados = FXCollections.observableArrayList();
         String sql = "SELECT * FROM automacaoProducao";
         try (Connection conn = Database.getConnection(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sql)) {
@@ -94,7 +94,7 @@ public class ControllerAutomacaoProducao {
         }
     }
 
-    private void limparCamposInsercao() {
+    public void limparCamposInsercao() {
         txtProduto.clear();
         txtPreco.clear();
         txtLote.clear();

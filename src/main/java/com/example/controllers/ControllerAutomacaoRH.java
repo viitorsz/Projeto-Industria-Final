@@ -67,7 +67,7 @@ public class ControllerAutomacaoRH {
     private ObservableList<AutomacaoRH> listaAutomacaoRH = FXCollections.observableArrayList();
 
     @FXML
-    private void salvarAutomacaoRH() {
+    public void salvarAutomacaoRH() {
   
        
 
@@ -131,7 +131,7 @@ public class ControllerAutomacaoRH {
             }
         });
     }
-    private void preencherCamposAtualizacao() {
+    public void preencherCamposAtualizacao() {
         AutomacaoRH automacaoSelecionada = tablesAutomacaoRH.getSelectionModel().getSelectedItem();
         if (automacaoSelecionada != null) {
             txtAtuNomeDaAutomacao.setText(automacaoSelecionada.getNomeAutomacao());
@@ -182,7 +182,7 @@ public void atualizarAutomacao() {
 }
 
     @FXML
-    private void carregarAutomacaoRH() {
+    public void carregarAutomacaoRH() {
         listaAutomacaoRH.clear();
         try (Connection conn = Database.getConnection();
              Statement stmt = conn.createStatement();
@@ -198,7 +198,7 @@ public void atualizarAutomacao() {
     }
 //função para filtrar os produtos
    @FXML
-    private void filtrarAutomacao() {
+    public void filtrarAutomacao() {
         FilteredList<AutomacaoRH> dadosFiltrados = new FilteredList<>(listaAutomacaoRH, p -> true);
 
         dadosFiltrados.setPredicate(produto -> {
@@ -228,7 +228,7 @@ public void atualizarAutomacao() {
     }
 
     @FXML
-    private void limparFiltro() {
+    public void limparFiltro() {
         filtroNomeAut.clear();
         filtroResponsavelAut.clear();
         filtroSetorAut.clear();
@@ -242,7 +242,7 @@ public void atualizarAutomacao() {
 
 
 
-private void limparCadastro() {
+public void limparCadastro() {
         txtNomeDaAutomacao.clear();
         txtResponsavel.clear();
         txtSetor.clear();
@@ -288,7 +288,7 @@ public void deleteArh() {
     }
 }
 
-    private void mostrarAlerta(AlertType tipo, String titulo, String mensagem) {
+    public void mostrarAlerta(AlertType tipo, String titulo, String mensagem) {
     Platform.runLater(() -> {
         Alert alerta = new Alert(tipo);
         alerta.setTitle(titulo);

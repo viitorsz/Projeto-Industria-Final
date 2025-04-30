@@ -54,7 +54,7 @@ public class ControllerAutomacaoQA {
 
     // Método para gerar QA
     @FXML
-    private void gerarQA() {
+    public void gerarQA() {
         try (Connection conn = Database.getConnection();
              PreparedStatement stmt = conn.prepareStatement("INSERT INTO automacaoQA (produto, selo, descricao, caso, chegada, saida, porcentagem) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
 
@@ -77,7 +77,7 @@ public class ControllerAutomacaoQA {
     }
 
     // Método para carregar dados de QA na tabela
-    private void carregarQA() {
+    public void carregarQA() {
         ObservableList<AutomacaoQA> listaAutomacaoQA = FXCollections.observableArrayList();
         try (Connection conn = Database.getConnection();
              Statement stmt = conn.createStatement();
@@ -105,7 +105,7 @@ public class ControllerAutomacaoQA {
     }
 
     @FXML
-    private void editarQA() {
+    public void editarQA() {
         AutomacaoQA itemSelecionado = tablesAutomacaoQA.getSelectionModel().getSelectedItem();
         if (itemSelecionado == null) {
             mostrarAlerta(Alert.AlertType.WARNING, "Atenção", "Selecione um item para editar.");
@@ -135,7 +135,7 @@ public class ControllerAutomacaoQA {
     }
 
     @FXML
-    private void DeletarQA() {
+    public void DeletarQA() {
         AutomacaoQA itemSelecionado = tablesAutomacaoQA.getSelectionModel().getSelectedItem();
         if (itemSelecionado != null) {
             try (Connection conn = Database.getConnection();
@@ -166,7 +166,7 @@ public class ControllerAutomacaoQA {
 
     // Método para filtrar os itens de QA
     @FXML
-    private void filtrarQA() {
+    public void filtrarQA() {
         ObservableList<AutomacaoQA> itensFiltrados = FXCollections.observableArrayList();
 
         String textoProduto = filtroProduto.getText().toLowerCase();
@@ -186,7 +186,7 @@ public class ControllerAutomacaoQA {
         tablesAutomacaoQA.setItems(itensFiltrados.isEmpty() ? listaAutomacaoQA : itensFiltrados);
     }
     
-    private void preencherCamposAtualizacao() {
+    public void preencherCamposAtualizacao() {
         AutomacaoQA automacaoSelecionada = tablesAutomacaoQA.getSelectionModel().getSelectedItem();
         if (automacaoSelecionada != null) {
             txtAtualizarProduto.setText(String.valueOf(automacaoSelecionada.getProduto()));
@@ -230,7 +230,7 @@ public class ControllerAutomacaoQA {
         }
     }
     // Método para limpar os campos do formulário
-    private void limparCampos() {
+    public void limparCampos() {
         txtProduto.clear();
         txtSelo.clear();
         txtDescricaoQA.clear();
@@ -248,7 +248,7 @@ public class ControllerAutomacaoQA {
     }
 
     // Método para mostrar alertas
-    private void mostrarAlerta(AlertType tipo, String titulo, String mensagem) {
+    public void mostrarAlerta(AlertType tipo, String titulo, String mensagem) {
         Platform.runLater(() -> {
             Alert alerta = new Alert(tipo);
             alerta.setTitle(titulo);
