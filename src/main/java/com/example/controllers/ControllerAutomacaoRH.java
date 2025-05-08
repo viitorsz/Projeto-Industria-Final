@@ -12,7 +12,6 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
-
 import java.sql.*;
 
 public class ControllerAutomacaoRH {
@@ -30,12 +29,15 @@ public class ControllerAutomacaoRH {
     @FXML private TableColumn<AutomacaoRH, String> colOperacao;
     @FXML private TableColumn<AutomacaoRH, String> colPrioridade;
     @FXML private TableColumn<AutomacaoRH, String> colSituacao;
+    @FXML private TableColumn<AutomacaoRH, String> colCpf;
     @FXML private ComboBox<String> cmbCategoria;
     @FXML private ComboBox<String> cmbPrioridade;
     @FXML private ComboBox<String> cmbSituacao;
     @FXML private TextField txtLocalizacao;
     @FXML private TextField txtOperacao;
     @FXML private TextField txtSetor;
+    @FXML private TextField txtCpf;
+    @FXML private ComboBox<String> cmbRelatorios;    
 
     //import dos filtros
     @FXML private TextField filtroNomeAut;
@@ -72,7 +74,7 @@ public class ControllerAutomacaoRH {
        
 
         try (Connection conn = Database.getConnection();
-             PreparedStatement stmt = conn.prepareStatement("INSERT INTO automacaoRH (nome_automacao, responsavel, categoria, descricao, operacao, setor, localizacao, situacao, prioridade) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+             PreparedStatement stmt = conn.prepareStatement("INSERT INTO automacaoRH (nome_automacao, responsavel, categoria, descricao, operacao, setor, localizacao, situacao, prioridade, cpf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
 
             stmt.setString(1, txtNomeDaAutomacao.getText());
             stmt.setString(2, txtResponsavel.getText());
@@ -83,6 +85,7 @@ public class ControllerAutomacaoRH {
             stmt.setString(7, txtLocalizacao.getText());
             stmt.setString(8, cmbSituacao.getValue());
             stmt.setString(9, cmbPrioridade.getValue());
+            stmt.setString(10, txtCpf.getText());
 
             stmt.executeUpdate();
 
@@ -112,7 +115,7 @@ public class ControllerAutomacaoRH {
         colSituacao.setCellValueFactory(new PropertyValueFactory<>("situacao"));
         colPrioridade.setCellValueFactory(new PropertyValueFactory<>("prioridade"));
         colDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
-        
+        colCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
 
         cmbFiltrarSituacao.getItems().addAll("1-ativo", "2-inativo");
         cmbAtuCategoria.getItems().addAll( "Recrutamento e Seleção", "Treinamento e Desenvolvimento", "Comunicação Interna");
@@ -121,6 +124,14 @@ public class ControllerAutomacaoRH {
         cmbCategoria.getItems().addAll( "Recrutamento e Seleção", "Treinamento e Desenvolvimento", "Comunicação Interna");
         cmbPrioridade.getItems().addAll("Baixa","Média","Alta");
         cmbSituacao.getItems().addAll("ativo", "inativo");
+
+        cmbRelatorios.getItems().addAll(
+    "123.456.789-00", 
+    "987.654.321-00", 
+    "456.123.789-00", 
+    "321.654.987-00", 
+    "654.987.123-00"
+);
 
         carregarAutomacaoRH();
 
@@ -186,16 +197,30 @@ public void atualizarAutomacao() {
         listaAutomacaoRH.clear();
         try (Connection conn = Database.getConnection();
              Statement stmt = conn.createStatement();
+             
              ResultSet rs = stmt.executeQuery("SELECT * FROM automacaoRH")) {
-
-            while (rs.next()) {
-                listaAutomacaoRH.add(new AutomacaoRH(rs.getInt("id"), rs.getString("nome_automacao"), rs.getString("responsavel"), rs.getString("categoria"), rs.getString("descricao"), rs.getString("operacao"), rs.getString("setor"), rs.getString("localizacao"), rs.getString("situacao"), rs.getString(("prioridade"))));
+                while (rs.next()) { // <- aqui é onde você garante que há dados
+                    listaAutomacaoRH.add(new AutomacaoRH(
+                        rs.getInt("id"),
+                        rs.getString("nome_automacao"),
+                        rs.getString("responsavel"),
+                        rs.getString("categoria"),
+                        rs.getString("descricao"),
+                        rs.getString("operacao"),
+                        rs.getString("setor"),
+                        rs.getString("localizacao"),
+                        rs.getString("situacao"),
+                        rs.getString("prioridade"),
+                        rs.getString("cpf") // campo cpf corretamente posicionado
+                    ));
+                }
+        
+                tablesAutomacaoRH.setItems(listaAutomacaoRH);
+        
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-            tablesAutomacaoRH.setItems(listaAutomacaoRH);
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
-    }
 //função para filtrar os produtos
    @FXML
     public void filtrarAutomacao() {
@@ -248,6 +273,7 @@ public void limparCadastro() {
         txtSetor.clear();
         txtDescricao.clear();
         txtLocalizacao.clear();
+        txtCpf.clear();
         cmbCategoria.setValue(null);
         cmbPrioridade.setValue(null);
         cmbSituacao.setValue(null);
@@ -263,6 +289,9 @@ public void deleteArh() {
         try (Connection conn = Database.getConnection();
              PreparedStatement stmt = conn.prepareStatement("DELETE FROM automacaoRH WHERE id = ?")) {
             
+                Alert confirm = new Alert(AlertType.CONFIRMATION, "Deseja realmente deletar este produto?", ButtonType.YES, ButtonType.NO);
+                confirm.showAndWait();
+
             stmt.setInt(1, automacaoSelecionada.getId());
             stmt.executeUpdate();
             
@@ -297,4 +326,6 @@ public void deleteArh() {
         alerta.show();
     });
 }
+
+
 }

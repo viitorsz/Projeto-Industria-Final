@@ -11,7 +11,8 @@ CREATE TABLE automacaorh (
     setor varchar(100) not null,
     localizacao varchar(100) not null,
     situacao varchar(100) not null,
-    prioridade varchar(100) not null
+    prioridade varchar(100) not null,
+    cpf varchar(100) not null
     );
 
 CREATE TABLE automacaoEst (

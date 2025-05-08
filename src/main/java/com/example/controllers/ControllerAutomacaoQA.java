@@ -141,6 +141,9 @@ public class ControllerAutomacaoQA {
             try (Connection conn = Database.getConnection();
                  PreparedStatement stmt = conn.prepareStatement("DELETE FROM automacaoQA WHERE id=?")) {
 
+                    Alert confirm = new Alert(AlertType.CONFIRMATION, "Deseja realmente deletar este produto?", ButtonType.YES, ButtonType.NO);
+                    confirm.showAndWait();
+
                 stmt.setInt(1, itemSelecionado.getId());
                 stmt.executeUpdate();
                 

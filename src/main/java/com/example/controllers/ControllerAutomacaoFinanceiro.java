@@ -269,6 +269,9 @@ public void deleteFin() {
         try (Connection conn = Database.getConnection();
              PreparedStatement stmt = conn.prepareStatement("DELETE FROM automacaoFinanceiro WHERE id = ?")) {
             
+                Alert confirm = new Alert(AlertType.CONFIRMATION, "Deseja realmente deletar este produto?", ButtonType.YES, ButtonType.NO);
+                confirm.showAndWait();
+                
             stmt.setInt(1, automacaoSelecionada.getId());
             stmt.executeUpdate();
             

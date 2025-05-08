@@ -101,6 +101,9 @@ public class ControllerAutomacaoEstoque {
         if (itemSelecionado != null) {
             try (Connection conn = Database.getConnection();
                  PreparedStatement stmt = conn.prepareStatement("DELETE FROM automacaoEst WHERE id=?")) {
+                   
+                    Alert confirm = new Alert(AlertType.CONFIRMATION, "Deseja realmente deletar este produto?", ButtonType.YES, ButtonType.NO);
+                    confirm.showAndWait();
 
                 stmt.setInt(1, itemSelecionado.getId());
                 stmt.executeUpdate();

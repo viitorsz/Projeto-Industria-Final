@@ -11,9 +11,10 @@ public class AutomacaoRH {
     private String localizacao;
     private String situacao;
     private String prioridade;
+    private String cpf;
 
 
-    public AutomacaoRH(int id, String nomeAutomacao, String responsavel, String categoria, String descricao, String operacao, String setor, String localizacao, String situacao, String prioridade){
+    public AutomacaoRH(int id, String nomeAutomacao, String responsavel, String categoria, String descricao, String operacao, String setor, String localizacao, String situacao, String prioridade, String cpf){
         this.id = id;
         this.nomeAutomacao = nomeAutomacao;
         this.responsavel = responsavel;
@@ -24,6 +25,7 @@ public class AutomacaoRH {
         this.localizacao = localizacao;
         this.situacao = situacao;
         this.prioridade = prioridade;
+        this.cpf = cpf;
     }
 
     public int getId(){
@@ -109,4 +111,11 @@ public class AutomacaoRH {
         this.prioridade = prioridade;
     }
 
+    public String getCpf(){
+        return cpf;
+    }
+
+    public void setCpf(String cpf){
+        this.cpf = cpf;
+    }
 }
