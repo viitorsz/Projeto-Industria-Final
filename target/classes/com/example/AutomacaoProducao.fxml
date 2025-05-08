@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane fx:id="tabPaneAutomacaoProducao" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="1175.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ControllerAutomacaoProducao">
+   <tabs>
+      <Tab fx:id="tabAutomacaoProducao" text="Cadastrar Produção">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="628.0" prefWidth="1206.0">
+               <children>
+                  <Label layoutX="37.0" layoutY="36.0" text="Nome do produto">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="242.0" layoutY="36.0" text="Preço">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="35.0" layoutY="104.0" text="Lote">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="242.0" layoutY="104.0" text="Código">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="txtProduto" layoutX="35.0" layoutY="63.0" />
+                  <TextField fx:id="txtPreco" layoutX="242.0" layoutY="63.0" />
+                  <TextField fx:id="txtLote" layoutX="35.0" layoutY="132.0" />
+                  <TextField fx:id="txtCodigo" layoutX="242.0" layoutY="132.0" />
+                  <Button layoutX="171.0" layoutY="199.0" mnemonicParsing="false" onAction="#saveProducao" prefHeight="35.0" prefWidth="89.0" text="Criar">
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconCadastro.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></AnchorPane>
+        </content>
+         <graphic>
+            <ImageView fitHeight="51.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconCadastro.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Tab>
+      <Tab fx:id="tabListarProducao" text="Listar Produção">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="tablesAutomacaoProducao" layoutX="14.0" layoutY="14.0" prefHeight="602.0" prefWidth="674.0">
+                    <columns>
+                      <TableColumn fx:id="colProduto" prefWidth="194.0" text="Nome do Produto" />
+                      <TableColumn fx:id="colPreco" prefWidth="112.0" text="Preço" />
+                        <TableColumn fx:id="colLote" minWidth="9.0" prefWidth="160.0" text="Lote" />
+                        <TableColumn fx:id="colCodigo" prefWidth="207.0" text="Código" />
+                    </columns>
+                  </TableView>
+                  <TextField fx:id="filtroProduto" layoutX="719.0" layoutY="73.0" promptText="Filtrar por Produto" />
+                  <TextField fx:id="filtroPreco" layoutX="963.0" layoutY="73.0" promptText="Filtrar por Preço" />
+                  <TextField fx:id="filtroLote" layoutX="719.0" layoutY="173.0" promptText="Filtrar por Lote" />
+                  <TextField fx:id="filtroCodigo" layoutX="963.0" layoutY="173.0" promptText="Filtrar por Código" />
+                  <Button layoutX="778.0" layoutY="302.0" mnemonicParsing="false" onAction="#filtrarProducao" text="Filtrar">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconFiltrar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="963.0" layoutY="302.0" mnemonicParsing="false" onAction="#limparProducao" text="Limpar Filtro">
+                     <graphic>
+                        <ImageView fitHeight="41.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconRemover.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></AnchorPane>
+        </content>
+         <graphic>
+            <ImageView fitHeight="68.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconVisualizar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Tab>
+      <Tab fx:id="tabAtualizarProducao" text="Atualizar Produção">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="39.0" layoutY="44.0" text="Nome do produto">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="266.0" layoutY="44.0" text="Preço">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="40.0" layoutY="111.0" text="Lote">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="266.0" layoutY="111.0" text="Código">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="txtAtualizarProduto" layoutX="40.0" layoutY="70.0" />
+                  <TextField fx:id="txtAtualizarLote" layoutX="40.0" layoutY="131.0" />
+                  <TextField fx:id="txtAtualizarPreco" layoutX="266.0" layoutY="70.0" />
+                  <TextField fx:id="txtAtualizarCodigo" layoutX="266.0" layoutY="131.0" />
+                  <Button layoutX="101.0" layoutY="221.0" mnemonicParsing="false" onAction="#atualizarProducao" text="Atualizar">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Atualizar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="270.0" layoutY="221.0" mnemonicParsing="false" onAction="#DeletarProducao" text="Deletar ">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconRemover.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></AnchorPane>
+        </content>
+         <graphic>
+            <ImageView fitHeight="76.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Atualizar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Tab>
+   </tabs>
+</TabPane>

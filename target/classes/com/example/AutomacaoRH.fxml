@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane fx:id="tabPaneAutomacaoRH" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="1352.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ControllerAutomacaoRH">
+  <tabs>
+    <Tab fx:id="tabAutomacaoRH" text="Cadastrar Automação">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="628.0" prefWidth="1087.0">
+               <children>
+                  <Label layoutX="11.0" layoutY="56.0" text="Nome da Automação" />
+                  <TextField fx:id="txtNomeDaAutomacao" layoutX="8.0" layoutY="75.0" promptText="Nome" />
+                  <Label layoutX="8.0" layoutY="108.0" text="Responável" />
+                  <TextField fx:id="txtResponsavel" layoutX="8.0" layoutY="127.0" promptText="Responsável" />
+                  <Label layoutX="8.0" layoutY="158.0" text="Categoria" />
+                  <Label layoutX="8.0" layoutY="209.0" text="Setor" />
+                  <TextField fx:id="txtSetor" layoutX="7.0" layoutY="228.0" promptText="Setor" />
+                  <Button fx:id="btnSave" alignment="CENTER" layoutX="116.0" layoutY="384.0" mnemonicParsing="false" onAction="#salvarAutomacaoRH" prefHeight="37.0" prefWidth="141.0" text="Criar">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconCadastro.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <ComboBox fx:id="cmbCategoria" layoutX="7.0" layoutY="176.0" prefWidth="150.0" />
+                  <TextArea fx:id="txtDescricao" layoutX="201.0" layoutY="106.0" prefHeight="18.0" prefWidth="200.0" promptText="Descrição" />
+                  <Label layoutX="205.0" layoutY="79.0" text="Descrição" />
+                  <Label layoutX="201.0" layoutY="158.0" text="Situação" />
+                  <ComboBox fx:id="cmbSituacao" layoutX="201.0" layoutY="176.0" prefWidth="150.0" />
+                  <Label layoutX="205.0" layoutY="209.0" text="Operação" />
+                  <TextField fx:id="txtOperacao" layoutX="204.0" layoutY="228.0" promptText="Operação" />
+                  <Label layoutX="8.0" layoutY="262.0" text="Prioridade" />
+                  <ComboBox fx:id="cmbPrioridade" layoutX="8.0" layoutY="290.0" prefWidth="150.0" />
+                  <Label layoutX="205.0" layoutY="262.0" text="Localização" />
+                  <TextField fx:id="txtLocalizacao" layoutX="204.0" layoutY="290.0" promptText="Localização" />
+               </children></AnchorPane>
+      </content>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconCadastro.png" />
+               </image>
+            </ImageView>
+         </graphic>
+    </Tab>
+      <Tab fx:id="TabListarAutomacao" text="Vizualizar Dados">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="tablesAutomacaoRH" layoutX="201.0" layoutY="232.0" prefHeight="353.0" prefWidth="821.0">
+                    <columns>
+                      <TableColumn fx:id="colId" prefWidth="49.0" text="Id" />
+                        <TableColumn fx:id="colNomeAutomacao" prefWidth="92.0" text="Nome" />
+                        <TableColumn fx:id="colResponsavel" prefWidth="100.0" text="Responsável" />
+                        <TableColumn fx:id="colCategoria" prefWidth="71.0" text="Categoria" />
+                        <TableColumn fx:id="colSetor" prefWidth="74.0" text="Setor" />
+                        <TableColumn fx:id="colDescricao" prefWidth="119.0" text="Descrição" />
+                        <TableColumn fx:id="colSituacao" prefWidth="76.0" text="Situação" />
+                        <TableColumn fx:id="colLocalizacao" prefWidth="70.0" text="Localização" />
+                        <TableColumn fx:id="colOperacao" prefWidth="75.0" text="Operação" />
+                        <TableColumn fx:id="colPrioridade" text="Prioridade" />
+                    </columns>
+                  </TableView>
+                  <TextField fx:id="filtroNomeAut" layoutX="317.0" layoutY="58.0" promptText="Filtrar por automação" />
+                  <TextField fx:id="filtroResponsavelAut" layoutX="722.0" layoutY="58.0" promptText="Filtrar por Responsável" />
+                  <TextField fx:id="filtroSetorAut" layoutX="512.0" layoutY="58.0" promptText="Filtrar por Setor" />
+                  <TextField fx:id="filtroOperacaoAut" layoutX="722.0" layoutY="121.0" promptText="Filtrar por operação" />
+                  <TextField fx:id="filtroLocalizacaoAut" layoutX="317.0" layoutY="121.0" promptText="Filtrar por localização" />
+                  <Button fx:id="btnLimparFiltro" alignment="CENTER" layoutX="586.0" layoutY="181.0" mnemonicParsing="false" onAction="#limparFiltro" prefHeight="27.0" prefWidth="121.0" text="Limpar Filtro">
+                     <graphic>
+                        <ImageView fitHeight="19.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconRemover.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnFiltrar" alignment="CENTER" layoutX="451.0" layoutY="181.0" mnemonicParsing="false" onAction="#filtrarAutomacao" prefHeight="17.0" prefWidth="113.0" text="Filtrar">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconFiltrar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <ComboBox fx:id="cmbFiltrarSituacao" layoutX="511.0" layoutY="121.0" prefWidth="150.0" promptText="Filtrar por situação" />
+               </children>
+            </AnchorPane>
+        </content>
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iconVisualizar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Tab>
+      <Tab fx:id="TabAtualizarAutomacao" text="Atualizar Automação">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="89.0" text="Nome da Automação" />
+                  <TextField fx:id="txtAtuNomeDaAutomacao" layoutX="14.0" layoutY="106.0" promptText="Nome" />
+                  <Label layoutX="248.0" layoutY="89.0" text="Responável" />
+                  <TextField fx:id="txtAtuResponsavel" layoutX="246.0" layoutY="106.0" promptText="Responsável" />
+                  <Label layoutX="245.0" layoutY="139.0" text="Categoria" />
+                  <Label layoutX="17.0" layoutY="139.0" text="Setor" />
+                  <TextField fx:id="txtAtuSetor" layoutX="14.0" layoutY="159.0" promptText="Setor" />
+                  <ComboBox fx:id="cmbAtuCategoria" layoutX="245.0" layoutY="159.0" prefWidth="150.0" />
+                  <TextArea fx:id="txtAtuDescricao" layoutX="245.0" layoutY="214.0" prefHeight="18.0" prefWidth="200.0" promptText="Descrição" />
+                  <Label layoutX="245.0" layoutY="193.0" text="Descrição" />
+                  <Label layoutX="248.0" layoutY="259.0" text="Situação" />
+                  <ComboBox fx:id="cmbAtuSituacao" layoutX="248.0" layoutY="278.0" prefWidth="150.0" />
+                  <Label layoutX="14.0" layoutY="193.0" text="Operação" />
+                  <TextField fx:id="txtAtuOperacao" layoutX="14.0" layoutY="214.0" promptText="Operação" />
+                  <Label layoutX="18.0" layoutY="259.0" text="Prioridade" />
+                  <ComboBox fx:id="cmbAtuPrioridade" layoutX="14.0" layoutY="278.0" prefWidth="150.0" />
+                  <Label layoutX="248.0" layoutY="319.0" text="Localização" />
+                  <TextField fx:id="txtAtuLocalizacao" layoutX="248.0" layoutY="334.0" promptText="Localização" />
+                  <Button alignment="CENTER" layoutX="252.0" layoutY="439.0" mnemonicParsing="false" onAction="#deleteArh" prefHeight="37.0" prefWidth="91.0" text="Excluir">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@iconRemover.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER" layoutX="71.0" layoutY="439.0" mnemonicParsing="false" onAction="#atualizarAutomacao" prefHeight="37.0" prefWidth="100.0" text="Atualizar">
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Atualizar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </content>
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Atualizar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Tab>
+    </tabs>
+</TabPane>
