@@ -61,7 +61,7 @@
                   <TextField fx:id="txtChegada" layoutX="232.0" layoutY="126.0" />
                   <TextField fx:id="txtSaida" layoutX="232.0" layoutY="180.0" />
                   <TextField fx:id="txtPorcentagem" layoutX="29.0" layoutY="268.0" prefHeight="25.0" prefWidth="85.0" />
-                  <Button layoutX="191.0" layoutY="314.0" mnemonicParsing="false" onAction="#gerarQA" prefHeight="38.0" prefWidth="94.0" text="Criar">
+                  <Button layoutX="191.0" layoutY="314.0" mnemonicParsing="false" onAction="#gerarQA" prefHeight="38.0" prefWidth="94.0" style="-fx-background-color: green;" text="Criar">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -99,7 +99,7 @@
                   <TextField fx:id="filtroProduto" layoutX="890.0" layoutY="96.0" promptText="Filtrar por Produto" />
                   <TextField fx:id="filtroSelo" layoutX="1039.0" layoutY="143.0" promptText="Filtrar por Selo" />
                   <ComboBox fx:id="cmbfiltroCaso" layoutX="1188.0" layoutY="96.0" prefWidth="150.0" promptText="Filtrar por Caso" />
-                  <Button layoutX="955.0" layoutY="256.0" mnemonicParsing="false" onAction="#filtrarQA" text="Filtrar">
+                  <Button layoutX="955.0" layoutY="256.0" mnemonicParsing="false" onAction="#filtrarQA" style="-fx-background-color: grey;" text="Filtrar">
                      <graphic>
                         <ImageView fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -108,7 +108,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="1188.0" layoutY="256.0" mnemonicParsing="false" onAction="#limparQA" text="Limpar Filtro">
+                  <Button layoutX="1188.0" layoutY="256.0" mnemonicParsing="false" onAction="#limparQA" style="-fx-background-color: red;" text="Limpar Filtro">
                      <graphic>
                         <ImageView fitHeight="38.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -173,20 +173,20 @@
                   <TextField fx:id="txtAtualizarSaida" layoutX="246.0" layoutY="173.0" />
                   <TextField fx:id="txtAtualizarPorcentagem" layoutX="24.0" layoutY="241.0" />
                   <TextArea fx:id="txtAtualizarDescricaoQA" layoutX="24.0" layoutY="173.0" prefHeight="37.0" prefWidth="149.0" />
-                  <Button layoutX="116.0" layoutY="314.0" mnemonicParsing="false" onAction="#atualizarQA" text="Atualizar">
+                  <Button layoutX="116.0" layoutY="314.0" mnemonicParsing="false" onAction="#atualizarQA" style="-fx-background-color: orange;" text="Atualizar">
                      <graphic>
                         <ImageView fitHeight="39.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@iconAtualizar.png" />
+                              <Image url="@Atualizar.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="253.0" layoutY="314.0" mnemonicParsing="false" onAction="#DeletarQA" text="Deletar">
+                  <Button layoutX="253.0" layoutY="314.0" mnemonicParsing="false" onAction="#DeletarQA" style="-fx-background-color: red;" text="Deletar">
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@iconDeletar.png" />
+                              <Image url="@iconRemover.png" />
                            </image>
                         </ImageView>
                      </graphic>

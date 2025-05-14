@@ -29,15 +29,15 @@ public class ControllerAutomacaoRH {
     @FXML private TableColumn<AutomacaoRH, String> colOperacao;
     @FXML private TableColumn<AutomacaoRH, String> colPrioridade;
     @FXML private TableColumn<AutomacaoRH, String> colSituacao;
-    @FXML private TableColumn<AutomacaoRH, String> colCpf;
+
     @FXML private ComboBox<String> cmbCategoria;
     @FXML private ComboBox<String> cmbPrioridade;
     @FXML private ComboBox<String> cmbSituacao;
     @FXML private TextField txtLocalizacao;
     @FXML private TextField txtOperacao;
     @FXML private TextField txtSetor;
-    @FXML private TextField txtCpf;
-    @FXML private ComboBox<String> cmbRelatorios;    
+    
+    
 
     //import dos filtros
     @FXML private TextField filtroNomeAut;
@@ -85,7 +85,7 @@ public class ControllerAutomacaoRH {
             stmt.setString(7, txtLocalizacao.getText());
             stmt.setString(8, cmbSituacao.getValue());
             stmt.setString(9, cmbPrioridade.getValue());
-            stmt.setString(10, txtCpf.getText());
+           
 
             stmt.executeUpdate();
 
@@ -115,7 +115,7 @@ public class ControllerAutomacaoRH {
         colSituacao.setCellValueFactory(new PropertyValueFactory<>("situacao"));
         colPrioridade.setCellValueFactory(new PropertyValueFactory<>("prioridade"));
         colDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
-        colCpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+        
 
         cmbFiltrarSituacao.getItems().addAll("1-ativo", "2-inativo");
         cmbAtuCategoria.getItems().addAll( "Recrutamento e Seleção", "Treinamento e Desenvolvimento", "Comunicação Interna");
@@ -125,13 +125,8 @@ public class ControllerAutomacaoRH {
         cmbPrioridade.getItems().addAll("Baixa","Média","Alta");
         cmbSituacao.getItems().addAll("ativo", "inativo");
 
-        cmbRelatorios.getItems().addAll(
-    "123.456.789-00", 
-    "987.654.321-00", 
-    "456.123.789-00", 
-    "321.654.987-00", 
-    "654.987.123-00"
-);
+        
+
 
         carregarAutomacaoRH();
 
@@ -210,8 +205,8 @@ public void atualizarAutomacao() {
                         rs.getString("setor"),
                         rs.getString("localizacao"),
                         rs.getString("situacao"),
-                        rs.getString("prioridade"),
-                        rs.getString("cpf") // campo cpf corretamente posicionado
+                        rs.getString("prioridade")
+                        
                     ));
                 }
         
@@ -273,7 +268,6 @@ public void limparCadastro() {
         txtSetor.clear();
         txtDescricao.clear();
         txtLocalizacao.clear();
-        txtCpf.clear();
         cmbCategoria.setValue(null);
         cmbPrioridade.setValue(null);
         cmbSituacao.setValue(null);
