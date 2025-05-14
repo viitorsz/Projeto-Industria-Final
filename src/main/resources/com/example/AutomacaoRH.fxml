@@ -45,8 +45,6 @@
                   <Label layoutX="205.0" layoutY="262.0" text="Localização" />
                   <TextField fx:id="txtLocalizacao" layoutX="204.0" layoutY="290.0" promptText="Localização" />
                   <Label layoutX="205.0" layoutY="79.0" text="Descrição" />
-                  <Label layoutX="457.0" layoutY="79.0" text="CPF" />
-                  <TextField fx:id="txtCpf" layoutX="440.0" layoutY="104.0" promptText="Cpf" />
                </children></AnchorPane>
       </content>
          <graphic>
@@ -70,10 +68,9 @@
                         <TableColumn fx:id="colSetor" prefWidth="74.0" text="Setor" />
                         <TableColumn fx:id="colDescricao" prefWidth="119.0" text="Descrição" />
                         <TableColumn fx:id="colSituacao" prefWidth="76.0" text="Situação" />
-                        <TableColumn fx:id="colLocalizacao" prefWidth="70.0" text="Localização" />
-                        <TableColumn fx:id="colOperacao" prefWidth="75.0" text="Operação" />
-                        <TableColumn fx:id="colPrioridade" text="Prioridade" />
-                        <TableColumn fx:id="colCpf" prefWidth="120.0" text="CPF" />
+                        <TableColumn fx:id="colLocalizacao" prefWidth="85.0" text="Localização" />
+                        <TableColumn fx:id="colOperacao" prefWidth="83.0" text="Operação" />
+                        <TableColumn fx:id="colPrioridade" prefWidth="98.0" text="Prioridade" />
                     </columns>
                   </TableView>
                   <TextField fx:id="filtroNomeAut" layoutX="317.0" layoutY="58.0" promptText="Filtrar por automação" />
